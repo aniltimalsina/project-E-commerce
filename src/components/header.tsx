@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Categories from "./categories";
 const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4">
@@ -23,7 +24,9 @@ const Header = () => {
             <li className="hover:text-gray-300">
               <Link to="/wishlist">Wishlist</Link>
             </li>
-            <li className="hover:text-gray-300">Categories</li>
+            <li className="hover:text-gray-300">
+              <Categories />
+            </li>
             <li className="hover:text-gray-300">
               <Link to="/orders">Orders</Link>
             </li>

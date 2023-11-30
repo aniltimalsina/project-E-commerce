@@ -4,8 +4,8 @@ const About = () => {
   return (
     <div className="bg-gray-100">
       <Header />
-      <div className="container mx-auto py-8 min-h-screen">
-        <div className="flex flex-wrap">
+      <div className="container mx-auto py-8 min-h-screen ">
+        <div className="flex flex-wrap ">
           <div className="w-full md:w-1/2 p-4">
             <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
             <p className="text-gray-700">
