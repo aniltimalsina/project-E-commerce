@@ -20,8 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-
-  "types": ["@types/react-slick"],
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
