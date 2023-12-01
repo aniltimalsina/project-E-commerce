@@ -18,6 +18,10 @@ const Wishlist = () => {
                 />
                 <h2 className="text-xl font-semibold mb-2">Product Name 1</h2>
                 <p className="text-gray-700 mb-2">Price: $49.99</p>
+
+                <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red">
+                  Remove
+                </button>
               </div>
 
               {/* <!-- Wishlist Item 2 --> */}
@@ -29,6 +33,10 @@ const Wishlist = () => {
                 />
                 <h2 className="text-xl font-semibold mb-2">Product Name 2</h2>
                 <p className="text-gray-700 mb-2">Price: $29.99</p>
+
+                <button className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red">
+                  Remove
+                </button>
               </div>
 
               {/* <!-- Add more wishlist items as needed --> */}
