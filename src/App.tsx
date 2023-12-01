@@ -7,6 +7,7 @@ import Cart from "./pages/cart";
 import Wishlist from "./pages/wishlist";
 import Orders from "./pages/orders";
 import Login from "./pages/login";
+import Registration from "./pages/registration";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Registration />} />
         </Route>
       </Routes>
     </BrowserRouter>
