@@ -19,7 +19,18 @@ const Cart = () => {
                   className="w-full h-auto mb-4"
                 />
                 <h2 className="text-xl font-semibold mb-2">Nike Juniper</h2>
-                <p className="text-gray-700 mb-2">Quantity: 2</p>
+                <p className="text-gray-700 mb-2">
+                  Quantity:
+                  <button className="text-blue-500 hover:underline mx-1">
+                    -
+                  </button>
+                  <span className="border border-gray-300 p-1 rounded-md">
+                    2
+                  </span>
+                  <button className="text-blue-500 hover:underline mx-1">
+                    +
+                  </button>
+                </p>
                 <p className="text-gray-700">Price: $49.99 each</p>
               </div>
 
@@ -33,7 +44,18 @@ const Cart = () => {
                 <h2 className="text-xl font-semibold mb-2">
                   Easton Prime Series Slo-Pitch Softball Glove
                 </h2>
-                <p className="text-gray-700 mb-2">Quantity: 1</p>
+                <p className="text-gray-700 mb-2">
+                  Quantity:
+                  <button className="text-blue-500 hover:underline mx-1">
+                    -
+                  </button>
+                  <span className="border border-gray-300 p-1 rounded-md">
+                    1
+                  </span>
+                  <button className="text-blue-500 hover:underline mx-1">
+                    +
+                  </button>
+                </p>
                 <p className="text-gray-700">Price: $29.99 each</p>
               </div>
             </div>

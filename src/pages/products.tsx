@@ -21,7 +21,7 @@ const Products = () => {
                 </p>
               </div>
 
-              {/* <!-- Product Price and Add to Cart --> */}
+              {/* <!-- Product Price and Add to Cart, Add to Wishlist --> */}
               <div>
                 <p className="text-2xl font-semibold mb-2">$99.99</p>
                 <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
