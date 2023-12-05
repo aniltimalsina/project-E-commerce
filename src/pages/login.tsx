@@ -5,13 +5,12 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <main className="flex  min-h-screen items-center ">
-        <div className="container mx-auto py-8 min-h-screen ">
+      <main className="container mx-auto grid items-center py-8 min-h-screen">
+        <div className=" mx-auto py-8 ">
           <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full">
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Login to Your Account
             </h2>
-
             <form>
               <div className="mb-4">
                 <label
