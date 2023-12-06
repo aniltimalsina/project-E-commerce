@@ -81,7 +81,10 @@ const Products = () => {
                           ? "Remove from Cart"
                           : "Add to Cart"}
                       </button>
-                      <button onClick={() => handleAddToWishlist(product.id)}>
+                      <button
+                        className="bg-blue-500 text-white m-2 px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                        onClick={() => handleAddToWishlist(product.id)}
+                      >
                         Add to Wishlist
                       </button>
                       {cart.some((p) => p.id === product.id) && (
