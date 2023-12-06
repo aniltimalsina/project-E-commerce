@@ -8,6 +8,7 @@ import {
   removeFromCart,
   selectCart,
   addToWishlist,
+  removeFromWishlist,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -16,6 +17,8 @@ const Products = () => {
     items: products,
     status,
     error,
+    wishlist,
+    productsInWishlist,
   } = useSelector((state) => state.products);
   const cart = useSelector(selectCart);
 
@@ -33,7 +36,11 @@ const Products = () => {
     }
   };
   const handleAddToWishlist = (productId) => {
-    dispatch(addToWishlist(productId));
+    if (productsInWishlist.includes(productId)) {
+      dispatch(removeFromWishlist(productId));
+    } else {
+      dispatch(addToWishlist(productId));
+    }
   };
 
   if (status === "loading") {
@@ -74,19 +81,22 @@ const Products = () => {
                         ${product.price}
                       </p>
                       <button
+                        className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                         onClick={() => handleAddToCart(product.id)}
-                        className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                       >
                         {cart.some((p) => p.id === product.id)
                           ? "Remove from Cart"
                           : "Add to Cart"}
                       </button>
                       <button
-                        className="bg-blue-500 text-white m-2 px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                        className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                         onClick={() => handleAddToWishlist(product.id)}
                       >
-                        Add to Wishlist
+                        {productsInWishlist.includes(product.id)
+                          ? "Added to Wishlist"
+                          : "Add to Wishlist"}
                       </button>
+
                       {cart.some((p) => p.id === product.id) && (
                         <p>
                           Quantity in Cart:{" "}
