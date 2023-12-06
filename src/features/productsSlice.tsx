@@ -16,6 +16,7 @@ const productSlice = createSlice({
     status: "idle",
     error: null,
     cart: [],
+    wishlist: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -25,8 +26,45 @@ const productSlice = createSlice({
       );
 
       if (productToAdd) {
-        state.cart.push(productToAdd);
+        const existingProduct = state.cart.find(
+          (product) => product.id === productId
+        );
+        if (existingProduct) {
+          existingProduct.quantity += 1;
+        } else {
+          state.cart.push({ ...productToAdd, quantity: 1 });
+        }
       }
+    },
+    removeFromCart: (state, action) => {
+      const productId = action.payload;
+      const existingProduct = state.cart.find(
+        (product) => product.id === productId
+      );
+      if (existingProduct) {
+        existingProduct.quantity = Math.max(existingProduct.quantity - 1, 1);
+
+        if (existingProduct.quantity === 1) {
+          state.cart = state.cart.filter((product) => product.id !== productId);
+        }
+      }
+    },
+    addToWishlist: (state, action) => {
+      const productId = action.payload;
+      const productToAdd = state.items.find(
+        (product) => product.id === productId
+      );
+
+      if (productToAdd && !state.wishlist.some((p) => p.id === productId)) {
+        state.wishlist.push(productToAdd);
+      }
+    },
+
+    removeFromWishlist: (state, action) => {
+      const productId = action.payload;
+      state.wishlist = state.wishlist.filter(
+        (product) => product.id !== productId
+      );
     },
   },
   extraReducers: (builder) => {
@@ -45,5 +83,17 @@ const productSlice = createSlice({
   },
 });
 
-export const { addToCart } = productSlice.actions;
+export const selectCart = (state) => state.products.cart;
+
+export const selectCartTotalItems = (state) =>
+  state.products.cart.reduce((total, product) => total + product.quantity, 0);
+
+export const selectCartTotalPrice = (state) =>
+  state.products.cart.reduce(
+    (total, product) => total + product.price * product.quantity,
+    0
+  );
+
+export const { addToCart, removeFromCart, addToWishlist, removeFromWishlist } =
+  productSlice.actions;
 export default productSlice.reducer;
