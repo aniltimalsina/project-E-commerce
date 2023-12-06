@@ -2,7 +2,7 @@
   "storeData": [
     {
       "id": "1",
-      "img": "shirt1",
+      "img": "t-shirt1.jpg",
       "name": "Casual T-Shirt 1",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -13,7 +13,7 @@
     },
     {
       "id": "2",
-      "img": "shirt2",
+      "img": "t-shirt2.jpg",
       "name": "Casual T-Shrit 2",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -24,7 +24,7 @@
     },
     {
       "id": "3",
-      "img": "shirt3",
+      "img": "t-shirt3.jpg",
       "name": "Casual T-Shrit 3",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -35,7 +35,7 @@
     },
     {
       "id": "4",
-      "img": "shirt4",
+      "img": "t-shirt4.jpg",
       "name": "Casual T-Shrit 4",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -46,7 +46,7 @@
     },
     {
       "id": "5",
-      "img": "shirt5",
+      "img": "t-shirt5.jpg",
       "name": "Casual T-Shrit 5",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -57,7 +57,7 @@
     },
     {
       "id": "6",
-      "img": "shirt6",
+      "img": "t-shirt6.jpg",
       "name": "Casual T-Shrit 6",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -68,7 +68,7 @@
     },
     {
       "id": "7",
-      "img": "shirt7",
+      "img": "t-shirt7.jpg",
       "name": "Casual T-Shrit 7",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -79,7 +79,7 @@
     },
     {
       "id": "8",
-      "img": "shirt8",
+      "img": "t-shirt8.jpg",
       "name": "Casual T-Shrit 8",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
@@ -91,7 +91,7 @@
 
     {
       "id": "9",
-      "img": "hoodie1",
+      "img": "hoodie1.jpg",
       "name": "Casual Hoodie 1",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -102,7 +102,7 @@
     },
     {
       "id": "10",
-      "img": "hoodie2",
+      "img": "hoodie2.jpg",
       "name": "Casual Hoodie 2",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -113,7 +113,7 @@
     },
     {
       "id": "11",
-      "img": "hoodie3",
+      "img": "hoodie3.jpg",
       "name": "Casual Hoodie 3",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -124,7 +124,7 @@
     },
     {
       "id": "12",
-      "img": "hoodie4",
+      "img": "hoodie4.jpg",
       "name": "Casual Hoodie 4",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -135,7 +135,7 @@
     },
     {
       "id": "13",
-      "img": "hoodie5",
+      "img": "hoodie5.jpg",
       "name": "Casual Hoodie 5",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -146,7 +146,7 @@
     },
     {
       "id": "14",
-      "img": "hoodie6",
+      "img": "hoodie6.jpg",
       "name": "Casual Hoodie 6",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -157,7 +157,7 @@
     },
     {
       "id": "15",
-      "img": "hoodie7",
+      "img": "hoodie7.jpg",
       "name": "Casual Hoodie 7",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -168,7 +168,7 @@
     },
     {
       "id": "16",
-      "img": "hoodie8",
+      "img": "hoodie8.jpg",
       "name": "Casual Hoodie 8",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
@@ -180,7 +180,7 @@
 
     {
       "id": "17",
-      "img": "shoe5",
+      "img": "shoe5.jpg",
       "name": "Casual Shoes 1",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -191,7 +191,7 @@
     },
     {
       "id": "18",
-      "img": "shoe6",
+      "img": "shoe6.jpg",
       "name": "Casual Shoes 2",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -202,7 +202,7 @@
     },
     {
       "id": "19",
-      "img": "shoe7",
+      "img": "shoe7.jpg",
       "name": "Casual Shoes 3",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -213,7 +213,7 @@
     },
     {
       "id": "20",
-      "img": "shoe8",
+      "img": "shoe8.jpg",
       "name": "Casual Shoes 4",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -224,7 +224,7 @@
     },
     {
       "id": "21",
-      "img": "shoe9",
+      "img": "shoe9.jpg",
       "name": "Casual Shoes 5",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -235,7 +235,7 @@
     },
     {
       "id": "22",
-      "img": "shoe10",
+      "img": "shoe10.jpg",
       "name": "Casual Shoes 6",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -246,7 +246,7 @@
     },
     {
       "id": "23",
-      "img": "shoe11",
+      "img": "shoe11.jpg",
       "name": "Casual Shoes 7",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -257,7 +257,7 @@
     },
     {
       "id": "24",
-      "img": "shoe12",
+      "img": "shoe12.jpg",
       "name": "Casual Shoes 8",
       "text": "Shop smarter, live better",
       "type": "Shoes",
@@ -268,7 +268,7 @@
     },
     {
       "id": "25",
-      "img": "dress1",
+      "img": "dress1.jpg",
       "name": "Casual Dress 1",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -279,7 +279,7 @@
     },
     {
       "id": "26",
-      "img": "dress2",
+      "img": "dress2.jpg",
       "name": "Casual Dress 2",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -290,7 +290,7 @@
     },
     {
       "id": "27",
-      "img": "dress3",
+      "img": "dress3.jpg",
       "name": "Casual Dress 3",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -301,7 +301,7 @@
     },
     {
       "id": "28",
-      "img": "dress4",
+      "img": "dress4.jpg",
       "name": "Casual Dress 4",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -312,7 +312,7 @@
     },
     {
       "id": "29",
-      "img": "dress5",
+      "img": "dress5.jpg",
       "name": "Casual Dress 5",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -323,7 +323,7 @@
     },
     {
       "id": "30",
-      "img": "dress6",
+      "img": "dress6.jpg",
       "name": "Casual Dress 6",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -334,7 +334,7 @@
     },
     {
       "id": "31",
-      "img": "dress7",
+      "img": "dress7.jpg",
       "name": "Casual Dress 7",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -345,7 +345,7 @@
     },
     {
       "id": "32",
-      "img": "dress8",
+      "img": "dress8.jpg",
       "name": "Casual Dress 8",
       "text": "Shop smarter, live better",
       "type": "Dresses",
@@ -356,7 +356,7 @@
     },
     {
       "id": "33",
-      "img": "jeans1",
+      "img": "jeans1.jpg",
       "name": "Casual Jeans 1",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -367,7 +367,7 @@
     },
     {
       "id": "34",
-      "img": "jeans2",
+      "img": "jeans2.jpg",
       "name": "Casual Jeans 2",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -378,7 +378,7 @@
     },
     {
       "id": "35",
-      "img": "jeans3",
+      "img": "jeans3.jpg",
       "name": "Casual Jeans 3",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -389,7 +389,7 @@
     },
     {
       "id": "36",
-      "img": "jeans4",
+      "img": "jeans4.jpg",
       "name": "Casual Jeans 4",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -400,7 +400,7 @@
     },
     {
       "id": "37",
-      "img": "jeans5",
+      "img": "jeans5.jpg",
       "name": "Casual Jeans 5",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -410,8 +410,8 @@
       "price": 200
     },
     {
-      "id": "37",
-      "img": "jeans6",
+      "id": "38",
+      "img": "jeans6.jpg",
       "name": "Casual Jeans 6",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -421,8 +421,8 @@
       "price": 200
     },
     {
-      "id": "38",
-      "img": "jeans7",
+      "id": "39",
+      "img": "jeans7.jpg",
       "name": "Casual Jeans 7",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -432,8 +432,8 @@
       "price": 180
     },
     {
-      "id": "39",
-      "img": "jeans8",
+      "id": "40",
+      "img": "jeans8.jpg",
       "name": "Casual Jeans 8",
       "text": "Shop smarter, live better",
       "type": "Jeans",
@@ -443,8 +443,8 @@
       "price": 160
     },
     {
-      "id": "40",
-      "img": "jacket1",
+      "id": "41",
+      "img": "jacket1.jpg",
       "name": "Casual Jacket 1",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -454,8 +454,8 @@
       "price": 400
     },
     {
-      "id": "41",
-      "img": "jacket2",
+      "id": "42",
+      "img": "jacket2.jpg",
       "name": "Casual Jacket 2",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -465,8 +465,8 @@
       "price": 255
     },
     {
-      "id": "42",
-      "img": "jacket3",
+      "id": "43",
+      "img": "jacket3.jpg",
       "name": "Casual Jacket 3",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -476,8 +476,8 @@
       "price": 300
     },
     {
-      "id": "43",
-      "img": "jacket4",
+      "id": "44",
+      "img": "jacket4.jpg",
       "name": "Casual Jacket 4",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -487,8 +487,8 @@
       "price": 185
     },
     {
-      "id": "44",
-      "img": "jacket5",
+      "id": "45",
+      "img": "jacket5.jpg",
       "name": "Casual Jacket 5",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -498,8 +498,8 @@
       "price": 185
     },
     {
-      "id": "45",
-      "img": "jacket6",
+      "id": "46",
+      "img": "jacket6.jpg",
       "name": "Casual Jacket 6",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -509,8 +509,8 @@
       "price": 285
     },
     {
-      "id": "46",
-      "img": "jacket7",
+      "id": "47",
+      "img": "jacket7.jpg",
       "name": "Casual Jacket 7",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -520,8 +520,8 @@
       "price": 425
     },
     {
-      "id": "47",
-      "img": "jacket8",
+      "id": "48",
+      "img": "jacket8.jpg",
       "name": "Casual Jacket 8",
       "text": "Shop smarter, live better",
       "type": "Jackets",
@@ -531,8 +531,8 @@
       "price": 335
     },
     {
-      "id": "48",
-      "img": "bag1",
+      "id": "49",
+      "img": "bag1.jpg",
       "name": "Casual Bag 1",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -541,8 +541,8 @@
       "price": 500
     },
     {
-      "id": "49",
-      "img": "bag2",
+      "id": "50",
+      "img": "bag2.jpg",
       "name": "Casual Bag 2",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -551,8 +551,8 @@
       "price": 85
     },
     {
-      "id": "50",
-      "img": "bag3",
+      "id": "51",
+      "img": "bag3.jpg",
       "name": "Casual Bag 3",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -561,8 +561,8 @@
       "price": 200
     },
     {
-      "id": "51",
-      "img": "bag4",
+      "id": "52",
+      "img": "bag4.jpg",
       "name": "Casual Bag 4",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -571,8 +571,8 @@
       "price": 25
     },
     {
-      "id": "52",
-      "img": "bag5",
+      "id": "53",
+      "img": "bag5.jpg",
       "name": "Casual Bag 5",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -581,8 +581,8 @@
       "price": 40
     },
     {
-      "id": "53",
-      "img": "bag6",
+      "id": "54",
+      "img": "bag6.jpg",
       "name": "Casual Bag 6",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -591,8 +591,8 @@
       "price": 400
     },
     {
-      "id": "54",
-      "img": "bag7",
+      "id": "55",
+      "img": "bag7.jpg",
       "name": "Casual Bag 7",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -601,8 +601,8 @@
       "price": 355
     },
     {
-      "id": "55",
-      "img": "bag8",
+      "id": "56",
+      "img": "bag8.jpg",
       "name": "Casual Bag 8",
       "text": "Shop smarter, live better",
       "type": "Bags",
@@ -611,8 +611,8 @@
       "price": 100
     },
     {
-      "id": "56",
-      "img": "suit1",
+      "id": "57",
+      "img": "suit1.jpg",
       "name": "Casual Suit 1",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -622,8 +622,8 @@
       "price": 300
     },
     {
-      "id": "57",
-      "img": "suit2",
+      "id": "58",
+      "img": "suit2.jpg",
       "name": "Casual Suit 2",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -633,8 +633,8 @@
       "price": 400
     },
     {
-      "id": "58",
-      "img": "suit3",
+      "id": "59",
+      "img": "suit3.jpg",
       "name": "Casual Suit 3",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -644,8 +644,8 @@
       "price": 200
     },
     {
-      "id": "59",
-      "img": "suit4",
+      "id": "60",
+      "img": "suit4.jpg",
       "name": "Casual Suit 4",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -655,8 +655,8 @@
       "price": 600
     },
     {
-      "id": "60",
-      "img": "suit5",
+      "id": "61",
+      "img": "suit5.jpg",
       "name": "Casual Suit 5",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -666,8 +666,8 @@
       "price": 750
     },
     {
-      "id": "61",
-      "img": "suit6",
+      "id": "62",
+      "img": "suit6.jpg",
       "name": "Casual Suit 6",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -677,8 +677,8 @@
       "price": 385
     },
     {
-      "id": "62",
-      "img": "suit7",
+      "id": "63",
+      "img": "suit7.jpg",
       "name": "Casual Suit 7",
       "text": "Shop smarter, live better",
       "type": "Suits",
@@ -688,8 +688,8 @@
       "price": 700
     },
     {
-      "id": "63",
-      "img": "suit8",
+      "id": "64",
+      "img": "suit8.jpg",
       "name": "Casual Suit 8",
       "text": "Shop smarter, live better",
       "type": "Suits",
