@@ -66,6 +66,19 @@ const productSlice = createSlice({
         (product) => product.id !== productId
       );
     },
+    moveFromWishlistToCart: (state, action) => {
+      const productId = action.payload;
+      const productToMove = state.wishlist.find(
+        (product) => product.id === productId
+      );
+
+      if (productToMove) {
+        state.cart.push({ ...productToMove, quantity: 1 });
+        state.wishlist = state.wishlist.filter(
+          (product) => product.id !== productId
+        );
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -94,6 +107,11 @@ export const selectCartTotalPrice = (state) =>
     0
   );
 
-export const { addToCart, removeFromCart, addToWishlist, removeFromWishlist } =
-  productSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  addToWishlist,
+  removeFromWishlist,
+  moveFromWishlistToCart,
+} = productSlice.actions;
 export default productSlice.reducer;
