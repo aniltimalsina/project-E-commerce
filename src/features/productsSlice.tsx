@@ -15,8 +15,20 @@ const productSlice = createSlice({
     items: [],
     status: "idle",
     error: null,
+    cart: [],
   },
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      const productId = action.payload;
+      const productToAdd = state.items.find(
+        (product) => product.id === productId
+      );
+
+      if (productToAdd) {
+        state.cart.push(productToAdd);
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -33,4 +45,5 @@ const productSlice = createSlice({
   },
 });
 
+export const { addToCart } = productSlice.actions;
 export default productSlice.reducer;

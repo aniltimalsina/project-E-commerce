@@ -2,7 +2,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../features/productsSlice";
+import { fetchProducts, addToCart } from "../features/productsSlice";
+
 const Products = () => {
   const dispatch = useDispatch();
   const {
@@ -14,6 +15,10 @@ const Products = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+
+  const handleAddToCart = (productId) => {
+    dispatch(addToCart(productId));
+  };
 
   if (status === "loading") {
     return <div>Loading...</div>;
@@ -31,10 +36,10 @@ const Products = () => {
           <div className="container mx-auto my-8">
             {products.map((product) => {
               return (
-                <>
+                <div key={product.id}>
                   {/* <!-- Product Image --> */}
                   <img
-                    src={product.img}
+                    src={`/images/${product.img}`}
                     alt="Product Image"
                     className="w-60 h-60 mb-4"
                   />
@@ -52,12 +57,15 @@ const Products = () => {
                       <p className="text-2xl font-semibold mb-2">
                         ${product.price}
                       </p>
-                      <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+                      <button
+                        onClick={() => handleAddToCart(product.id)}
+                        className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                      >
                         Add to Cart
                       </button>
                     </div>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
