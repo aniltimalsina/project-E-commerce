@@ -12,11 +12,12 @@ export const fetchProducts = createAsyncThunk(
 const productSlice = createSlice({
   name: "products",
   initialState: {
-    items: [],
+    items: [], //product list
     status: "idle",
     error: null,
     cart: [],
     wishlist: [],
+    productsInWishlist: [], //track product in the wishlist
   },
   reducers: {
     addToCart: (state, action) => {
@@ -55,8 +56,9 @@ const productSlice = createSlice({
         (product) => product.id === productId
       );
 
-      if (productToAdd && !state.wishlist.some((p) => p.id === productId)) {
+      if (productToAdd && !state.productsInWishlist.includes(productId)) {
         state.wishlist.push(productToAdd);
+        state.productsInWishlist.push(productId);
       }
     },
 
@@ -64,6 +66,9 @@ const productSlice = createSlice({
       const productId = action.payload;
       state.wishlist = state.wishlist.filter(
         (product) => product.id !== productId
+      );
+      state.productsInWishlist = state.productsInWishlist.filter(
+        (id) => id !== productId
       );
     },
     moveFromWishlistToCart: (state, action) => {
@@ -73,6 +78,9 @@ const productSlice = createSlice({
       );
 
       if (productToMove) {
+        state.productsInWishlist = state.productsInWishlist.filter(
+          (id) => id !== productId
+        );
         state.cart.push({ ...productToMove, quantity: 1 });
         state.wishlist = state.wishlist.filter(
           (product) => product.id !== productId
