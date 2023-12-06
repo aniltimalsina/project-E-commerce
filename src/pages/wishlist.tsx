@@ -2,7 +2,21 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import Img1 from "../assets/carousel-2.jpg";
 import Img2 from "../assets/carousel-3.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import { removeFromWishlist, addToCart } from "../features/productsSlice";
+
 const Wishlist = () => {
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state) => state.products.wishlist);
+
+  const handleRemoveFromWishlist = (productId) => {
+    dispatch(removeFromWishlist(productId));
+  };
+
+  const handleAddToCartFromWishlist = (productId) => {
+    dispatch(addToCart(productId));
+  };
+
   return (
     <div>
       <Header />

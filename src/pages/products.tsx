@@ -7,6 +7,7 @@ import {
   addToCart,
   removeFromCart,
   selectCart,
+  addToWishlist,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -30,6 +31,9 @@ const Products = () => {
     } else {
       dispatch(addToCart(productId));
     }
+  };
+  const handleAddToWishlist = (productId) => {
+    dispatch(addToWishlist(productId));
   };
 
   if (status === "loading") {
@@ -76,6 +80,9 @@ const Products = () => {
                         {cart.some((p) => p.id === product.id)
                           ? "Remove from Cart"
                           : "Add to Cart"}
+                      </button>
+                      <button onClick={() => handleAddToWishlist(product.id)}>
+                        Add to Wishlist
                       </button>
                       {cart.some((p) => p.id === product.id) && (
                         <p>

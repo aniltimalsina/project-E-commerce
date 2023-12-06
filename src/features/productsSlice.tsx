@@ -16,6 +16,7 @@ const productSlice = createSlice({
     status: "idle",
     error: null,
     cart: [],
+    wishlist: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -48,6 +49,23 @@ const productSlice = createSlice({
         }
       }
     },
+    addToWishlist: (state, action) => {
+      const productId = action.payload;
+      const productToAdd = state.items.find(
+        (product) => product.id === productId
+      );
+
+      if (productToAdd && !state.wishlist.some((p) => p.id === productId)) {
+        state.wishlist.push(productToAdd);
+      }
+    },
+
+    removeFromWishlist: (state, action) => {
+      const productId = action.payload;
+      state.wishlist = state.wishlist.filter(
+        (product) => product.id !== productId
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -76,5 +94,6 @@ export const selectCartTotalPrice = (state) =>
     0
   );
 
-export const { addToCart, removeFromCart } = productSlice.actions;
+export const { addToCart, removeFromCart, addToWishlist, removeFromWishlist } =
+  productSlice.actions;
 export default productSlice.reducer;
