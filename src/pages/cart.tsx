@@ -1,12 +1,23 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { removeFromCart } from "../features/productsSlice";
+import {
+  removeFromCart,
+  addToCart,
+  selectCart,
+  selectCartTotalItems,
+  selectCartTotalPrice,
+} from "../features/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 const Cart = () => {
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.products);
+  const cart = useSelector(selectCart);
+  const totalItems = useSelector(selectCartTotalItems);
+  const totalPrice = useSelector(selectCartTotalPrice);
   const handleRemoveFromCart = (productId) => {
     dispatch(removeFromCart(productId));
+  };
+  const handleAddToCart = (productId) => {
+    dispatch(addToCart(productId));
   };
   return (
     <div>
@@ -30,13 +41,19 @@ const Cart = () => {
                       </h2>
                       <p className="text-gray-700 mb-2">
                         Quantity:
-                        <button className="text-blue-500 hover:underline mx-1">
+                        <button
+                          onClick={() => handleRemoveFromCart(product.id)}
+                          className="text-blue-500 hover:underline mx-1"
+                        >
                           -
                         </button>
                         <span className="border border-gray-300 p-1 rounded-md">
-                          1
+                          {product.quantity}
                         </span>
-                        <button className="text-blue-500 hover:underline mx-1">
+                        <button
+                          onClick={() => handleAddToCart(product.id)}
+                          className="text-blue-500 hover:underline mx-1"
+                        >
                           +
                         </button>
                       </p>
@@ -55,8 +72,10 @@ const Cart = () => {
               })}
               <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-4">Cart Summary</h2>
-                <p className="text-gray-700 mb-2">Total Items: 0</p>
-                <p className="text-gray-700">Total Price: $0</p>
+                <p className="text-gray-50 mb-2">Total Items: {totalItems}</p>
+                <p className="text-gray-50">
+                  Total Price: ${totalPrice.toFixed(2)}
+                </p>
               </div>
 
               <div className="mt-8">

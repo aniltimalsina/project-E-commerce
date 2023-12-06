@@ -6,6 +6,7 @@ import {
   fetchProducts,
   addToCart,
   removeFromCart,
+  selectCart,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -14,16 +15,17 @@ const Products = () => {
     items: products,
     status,
     error,
-    cart,
   } = useSelector((state) => state.products);
+  const cart = useSelector(selectCart);
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
   const handleAddToCart = (productId) => {
-    const isInCart = cart.some((product) => product.id === productId);
-    if (isInCart) {
+    const existingProduct = cart.find((product) => product.id === productId);
+
+    if (existingProduct) {
       dispatch(removeFromCart(productId));
     } else {
       dispatch(addToCart(productId));
@@ -75,6 +77,12 @@ const Products = () => {
                           ? "Remove from Cart"
                           : "Add to Cart"}
                       </button>
+                      {cart.some((p) => p.id === product.id) && (
+                        <p>
+                          Quantity in Cart:{" "}
+                          {cart.find((p) => p.id === product.id).quantity}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>
