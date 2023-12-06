@@ -1,9 +1,13 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-
-import { useSelector } from "react-redux";
+import { removeFromCart } from "../features/productsSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Cart = () => {
+  const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.products);
+  const handleRemoveFromCart = (productId) => {
+    dispatch(removeFromCart(productId));
+  };
   return (
     <div>
       <Header />
@@ -30,7 +34,7 @@ const Cart = () => {
                           -
                         </button>
                         <span className="border border-gray-300 p-1 rounded-md">
-                          2
+                          1
                         </span>
                         <button className="text-blue-500 hover:underline mx-1">
                           +
@@ -40,13 +44,19 @@ const Cart = () => {
                         Price: ${product.price} each
                       </p>
                     </div>
+                    <button
+                      className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red"
+                      onClick={() => handleRemoveFromCart(product.id)}
+                    >
+                      Remove from Cart
+                    </button>
                   </div>
                 );
               })}
               <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-4">Cart Summary</h2>
-                <p className="text-gray-700 mb-2">Total Items: 3</p>
-                <p className="text-gray-700">Total Price: $129.97</p>
+                <p className="text-gray-700 mb-2">Total Items: 0</p>
+                <p className="text-gray-700">Total Price: $0</p>
               </div>
 
               <div className="mt-8">

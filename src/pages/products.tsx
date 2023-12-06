@@ -2,7 +2,11 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, addToCart } from "../features/productsSlice";
+import {
+  fetchProducts,
+  addToCart,
+  removeFromCart,
+} from "../features/productsSlice";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -10,6 +14,7 @@ const Products = () => {
     items: products,
     status,
     error,
+    cart,
   } = useSelector((state) => state.products);
 
   useEffect(() => {
@@ -17,7 +22,12 @@ const Products = () => {
   }, [dispatch]);
 
   const handleAddToCart = (productId) => {
-    dispatch(addToCart(productId));
+    const isInCart = cart.some((product) => product.id === productId);
+    if (isInCart) {
+      dispatch(removeFromCart(productId));
+    } else {
+      dispatch(addToCart(productId));
+    }
   };
 
   if (status === "loading") {
@@ -61,7 +71,9 @@ const Products = () => {
                         onClick={() => handleAddToCart(product.id)}
                         className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                       >
-                        Add to Cart
+                        {cart.some((p) => p.id === product.id)
+                          ? "Remove from Cart"
+                          : "Add to Cart"}
                       </button>
                     </div>
                   </div>
