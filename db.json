@@ -14,7 +14,7 @@
     {
       "id": "2",
       "img": "t-shirt2.jpg",
-      "name": "Casual T-Shrit 2",
+      "name": "Casual T-Shirt 2",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["M", "L", "XL"],
@@ -25,7 +25,7 @@
     {
       "id": "3",
       "img": "t-shirt3.jpg",
-      "name": "Casual T-Shrit 3",
+      "name": "Casual T-Shirt 3",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["L", "XL"],
@@ -36,7 +36,7 @@
     {
       "id": "4",
       "img": "t-shirt4.jpg",
-      "name": "Casual T-Shrit 4",
+      "name": "Casual T-Shirt 4",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["M", "L", "XL"],
@@ -47,7 +47,7 @@
     {
       "id": "5",
       "img": "t-shirt5.jpg",
-      "name": "Casual T-Shrit 5",
+      "name": "Casual T-Shirt 5",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["M", "L", "XL"],
@@ -58,7 +58,7 @@
     {
       "id": "6",
       "img": "t-shirt6.jpg",
-      "name": "Casual T-Shrit 6",
+      "name": "Casual T-Shirt 6",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["M", "L", "XL"],
@@ -69,7 +69,7 @@
     {
       "id": "7",
       "img": "t-shirt7.jpg",
-      "name": "Casual T-Shrit 7",
+      "name": "Casual T-Shirt 7",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["M", "L", "XL"],
@@ -80,7 +80,7 @@
     {
       "id": "8",
       "img": "t-shirt8.jpg",
-      "name": "Casual T-Shrit 8",
+      "name": "Casual T-Shirt 8",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
       "size": ["M", "XL"],

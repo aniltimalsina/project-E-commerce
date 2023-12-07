@@ -9,22 +9,27 @@ import {
   selectCart,
   addToWishlist,
   removeFromWishlist,
+  selectCategory,
+  setSearchInput,
+  selectCategoryState,
 } from "../features/productsSlice";
 
 const Products = () => {
   const dispatch = useDispatch();
+  const selectedCategory = useSelector(selectCategoryState);
+  console.log("Selected Category in ProductsPage:", selectedCategory);
   const {
     items: products,
     status,
     error,
-    wishlist,
     productsInWishlist,
+    searchInput,
   } = useSelector((state) => state.products);
   const cart = useSelector(selectCart);
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts(selectedCategory)); // Pass selectedCategory to fetchProducts
+  }, [dispatch, selectedCategory]);
 
   const handleAddToCart = (productId) => {
     const existingProduct = cart.find((product) => product.id === productId);
@@ -43,6 +48,32 @@ const Products = () => {
     }
   };
 
+  const handleSearchInputChange = (input) => {
+    dispatch(setSearchInput(input));
+  };
+
+  // const filteredProducts = products.filter(
+  //   (product) => !selectedCategory || product.category === selectedCategory
+  // ); // Filter based on selected category
+  // // .filter((product) =>
+  // //   product.name.toLowerCase().includes(searchInput.toLowerCase())
+  // // ); // Filter based on search input
+
+  // console.log("Selected Category:", selectedCategory);
+  // console.log("Filtered Products:", filteredProducts);
+
+  const filteredProducts = products.filter((product) => {
+    const hasType = product.type !== undefined && product.type !== null;
+    const typeMatch =
+      !selectedCategory || (hasType && product.type === selectedCategory);
+
+    const nameMatch = product.name
+      .toLowerCase()
+      .includes(searchInput.toLowerCase());
+
+    return typeMatch && nameMatch;
+  });
+
   if (status === "loading") {
     return <div>Loading...</div>;
   }
@@ -56,10 +87,16 @@ const Products = () => {
       <Header />
       <div className="container mx-auto py-8 min-h-screen">
         <main className="flex-1">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchInput}
+            onChange={(e) => handleSearchInputChange(e.target.value)}
+          />
           <div className="container mx-auto my-8">
-            {products.map((product) => {
+            {filteredProducts.map((product) => {
               return (
-                <div key={product.id}>
+                <div key={product.id} className="border-2">
                   {/* <!-- Product Image --> */}
                   <img
                     src={`/images/${product.img}`}
