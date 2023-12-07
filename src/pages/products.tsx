@@ -9,6 +9,8 @@ import {
   selectCart,
   addToWishlist,
   removeFromWishlist,
+  selectCategory,
+  setSearchInput,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -19,6 +21,8 @@ const Products = () => {
     error,
     wishlist,
     productsInWishlist,
+    selectedCategory,
+    searchInput,
   } = useSelector((state) => state.products);
   const cart = useSelector(selectCart);
 
@@ -43,6 +47,18 @@ const Products = () => {
     }
   };
 
+  const handleSearchInputChange = (input) => {
+    dispatch(setSearchInput(input));
+  };
+
+  const filteredProducts = products
+    .filter(
+      (product) => !selectedCategory || product.category === selectedCategory
+    ) // Filter based on selected category
+    .filter((product) =>
+      product.name.toLowerCase().includes(searchInput.toLowerCase())
+    ); // Filter based on search input
+
   if (status === "loading") {
     return <div>Loading...</div>;
   }
@@ -56,10 +72,16 @@ const Products = () => {
       <Header />
       <div className="container mx-auto py-8 min-h-screen">
         <main className="flex-1">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchInput}
+            onChange={(e) => handleSearchInputChange(e.target.value)}
+          />
           <div className="container mx-auto my-8">
-            {products.map((product) => {
+            {filteredProducts.map((product) => {
               return (
-                <div key={product.id}>
+                <div key={product.id} className="border-2">
                   {/* <!-- Product Image --> */}
                   <img
                     src={`/images/${product.img}`}

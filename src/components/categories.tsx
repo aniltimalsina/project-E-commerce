@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { selectCategory } from "../features/productsSlice";
 
 const Categories = () => {
+  const dispatch = useDispatch();
   const [types, setTypes] = useState([]);
 
   const baseURL = "http://localhost:3000/storeData";
@@ -13,6 +16,10 @@ const Categories = () => {
     };
     getAll();
   }, []);
+
+  const handleCategoryChange = (category) => {
+    dispatch(selectCategory(category));
+  };
 
   const allTypes: string[] = [];
   types.map((item) => {
@@ -29,7 +36,7 @@ const Categories = () => {
           {uniqueTypes.map((item, index) => {
             return (
               <li key={index}>
-                <a>{item}</a>
+                <a onClick={() => handleCategoryChange(item)}>{item}</a>
               </li>
             );
           })}

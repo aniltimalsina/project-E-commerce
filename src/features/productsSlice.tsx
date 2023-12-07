@@ -18,6 +18,8 @@ const productSlice = createSlice({
     cart: [],
     wishlist: [],
     productsInWishlist: [], //track product in the wishlist
+    selectedCategory: null, // Track the selected category
+    searchInput: "", // Track the search input
   },
   reducers: {
     addToCart: (state, action) => {
@@ -87,6 +89,13 @@ const productSlice = createSlice({
         );
       }
     },
+    selectCategory: (state, action) => {
+      state.selectedCategory = action.payload;
+    },
+
+    setSearchInput: (state, action) => {
+      state.searchInput = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -121,5 +130,7 @@ export const {
   addToWishlist,
   removeFromWishlist,
   moveFromWishlistToCart,
+  selectCategory,
+  setSearchInput,
 } = productSlice.actions;
 export default productSlice.reducer;
