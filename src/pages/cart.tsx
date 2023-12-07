@@ -22,11 +22,11 @@ const Cart = () => {
   return (
     <div>
       <Header />
-      <div className="container mx-auto py-8 min-h-screen">
+      <div className="mx-auto py-8 min-h-screen">
         <main className="flex-1">
-          <div className="container mx-auto my-8">
+          <div>
             {/* <!-- Cart Items --> */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="container mx-auto my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {cart.map((product) => {
                 return (
                   <div key={product.id}>
