@@ -1,7 +1,7 @@
-import Img1 from "../assets/carousel-1.jpg";
-import Img2 from "../assets/carousel-2.jpg";
-import Img3 from "../assets/carousel-3.jpg";
-import Img4 from "../assets/carousel-4.jpg";
+import Img1 from "../../public/images/bag1.jpg";
+import Img2 from "../../public/images/dress1.jpg";
+import Img3 from "../../public/images/hoodie8.jpg";
+import Img4 from "../../public/images/jacket5.jpg";
 
 const CarouselHome = () => {
   return (
