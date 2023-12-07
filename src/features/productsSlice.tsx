@@ -133,4 +133,5 @@ export const {
   selectCategory,
   setSearchInput,
 } = productSlice.actions;
+export const selectCategoryState = (state) => state.products.selectedCategory;
 export default productSlice.reducer;
