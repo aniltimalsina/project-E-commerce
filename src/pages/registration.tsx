@@ -1,7 +1,50 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { registerUser } from "../features/userSlice";
 const Registration = () => {
+  const dispatch = useDispatch();
+
+  const [newUser, setNewUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (e) => {
+    setNewUser({
+      ...newUser,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Make a POST request to register a new user
+      const response = await axios.post("http://localhost:3000/users", newUser);
+
+      // Assuming the response contains the newly created user
+      const newUserFromServer = response.data;
+
+      // Dispatch the registration action
+      dispatch(registerUser(newUserFromServer));
+
+      // Reset form after registration
+      setNewUser({
+        username: "",
+        email: "",
+        password: "",
+      });
+    } catch (error) {
+      console.error("Error during registration:", error);
+      // Handle registration error (e.g., display an error message)
+    }
+  };
   return (
     <div>
       <Header />
@@ -11,7 +54,7 @@ const Registration = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Create an Account
             </h2>
-            <form>
+            <form onSubmit={handleRegistration}>
               <div className="mb-4">
                 <label
                   htmlFor="username"
@@ -24,6 +67,8 @@ const Registration = () => {
                   id="username"
                   name="username"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  value={newUser.username}
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -39,6 +84,8 @@ const Registration = () => {
                   id="email"
                   name="email"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  value={newUser.email}
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -54,6 +101,8 @@ const Registration = () => {
                   id="password"
                   name="password"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  value={newUser.password}
+                  onChange={handleInputChange}
                 />
               </div>
 
