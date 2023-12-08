@@ -1,7 +1,20 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../auth-thunk/auththunk";
 const Login = () => {
+  const dispatch = useDispatch();
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleLogin = () => {
+    dispatch(loginUser(credentials));
+  };
+
   return (
     <div>
       <Header />
@@ -11,7 +24,7 @@ const Login = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Login to Your Account
             </h2>
-            <form>
+            <form onSubmit={handleLogin}>
               <div className="mb-4">
                 <label
                   htmlFor="username"
@@ -23,6 +36,10 @@ const Login = () => {
                   type="text"
                   id="username"
                   name="username"
+                  value={credentials.username}
+                  onChange={(e) =>
+                    setCredentials({ ...credentials, username: e.target.value })
+                  }
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 />
               </div>
@@ -38,6 +55,10 @@ const Login = () => {
                   type="password"
                   id="password"
                   name="password"
+                  value={credentials.password}
+                  onChange={(e) =>
+                    setCredentials({ ...credentials, password: e.target.value })
+                  }
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 />
               </div>

@@ -698,5 +698,7 @@
       "gender": "male",
       "price": 550
     }
-  ]
+  ],
+
+  "users": []
 }
