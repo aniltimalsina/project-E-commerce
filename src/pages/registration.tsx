@@ -1,7 +1,22 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../auth-thunk/auththunk";
 const Registration = () => {
+  const dispatch = useDispatch();
+
+  const [userData, setUserData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const handleRegister = () => {
+    dispatch(registerUser(userData));
+  };
+
   return (
     <div>
       <Header />
@@ -11,7 +26,7 @@ const Registration = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Create an Account
             </h2>
-            <form>
+            <form onSubmit={handleRegister}>
               <div className="mb-4">
                 <label
                   htmlFor="username"
@@ -24,6 +39,10 @@ const Registration = () => {
                   id="username"
                   name="username"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  value={userData.username}
+                  onChange={(e) =>
+                    setUserData({ ...userData, username: e.target.value })
+                  }
                 />
               </div>
 
@@ -39,6 +58,10 @@ const Registration = () => {
                   id="email"
                   name="email"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  value={userData.email}
+                  onChange={(e) =>
+                    setUserData({ ...userData, email: e.target.value })
+                  }
                 />
               </div>
 
@@ -54,6 +77,10 @@ const Registration = () => {
                   id="password"
                   name="password"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                  value={userData.password}
+                  onChange={(e) =>
+                    setUserData({ ...userData, password: e.target.value })
+                  }
                 />
               </div>
 
