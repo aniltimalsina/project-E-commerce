@@ -3,16 +3,33 @@ import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../auth-thunk/auththunk";
+import { loginUser } from "../api/authapi";
+import { setUser, setToken } from "../features/authSlice";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
 
-  const handleLogin = () => {
-    dispatch(loginUser(credentials));
+  const handleInputChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+  const handleLogin = async () => {
+    try {
+      console.log("Attempting login with credentials:", credentials);
+      const user = await loginUser(credentials);
+      console.log("Login successful. User:", user);
+
+      // Dispatch actions to set user and token in Redux store
+      dispatch(setUser(user));
+      dispatch(setToken(user.id.toString()));
+      return navigate("/");
+    } catch (error) {
+      console.error("Login error:", error);
+    }
   };
 
   return (
@@ -24,7 +41,7 @@ const Login = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Login to Your Account
             </h2>
-            <form onSubmit={handleLogin}>
+            <form>
               <div className="mb-4">
                 <label
                   htmlFor="username"
@@ -36,10 +53,7 @@ const Login = () => {
                   type="text"
                   id="username"
                   name="username"
-                  value={credentials.username}
-                  onChange={(e) =>
-                    setCredentials({ ...credentials, username: e.target.value })
-                  }
+                  onChange={handleInputChange}
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 />
               </div>
@@ -55,16 +69,14 @@ const Login = () => {
                   type="password"
                   id="password"
                   name="password"
-                  value={credentials.password}
-                  onChange={(e) =>
-                    setCredentials({ ...credentials, password: e.target.value })
-                  }
+                  onChange={handleInputChange}
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                 />
               </div>
 
               <button
-                type="submit"
+                type="button"
+                onClick={handleLogin}
                 className="bg-blue-500 text-white p-2 rounded-full w-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
               >
                 Login

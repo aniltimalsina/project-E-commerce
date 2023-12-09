@@ -3,20 +3,30 @@ import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../auth-thunk/auththunk";
+import { registerUser } from "../api/authapi";
+import { setUser, setToken } from "../features/authSlice";
 const Registration = () => {
   const dispatch = useDispatch();
 
-  const [userData, setUserData] = useState({
+  const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const handleRegister = () => {
-    dispatch(registerUser(userData));
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+  const handleRegister = async () => {
+    try {
+      const user = await registerUser(formData);
+      // Dispatch actions to set user and token in Redux store
+      dispatch(setUser(user));
+      dispatch(setToken(user.token));
+    } catch (error) {
+      console.error("Registration error:", error);
+    }
+  };
   return (
     <div>
       <Header />
@@ -39,10 +49,7 @@ const Registration = () => {
                   id="username"
                   name="username"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                  value={userData.username}
-                  onChange={(e) =>
-                    setUserData({ ...userData, username: e.target.value })
-                  }
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -58,10 +65,7 @@ const Registration = () => {
                   id="email"
                   name="email"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                  value={userData.email}
-                  onChange={(e) =>
-                    setUserData({ ...userData, email: e.target.value })
-                  }
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -77,10 +81,7 @@ const Registration = () => {
                   id="password"
                   name="password"
                   className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-                  value={userData.password}
-                  onChange={(e) =>
-                    setUserData({ ...userData, password: e.target.value })
-                  }
+                  onChange={handleInputChange}
                 />
               </div>
 
