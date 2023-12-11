@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Categories from "./categories";
+
 const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4">
@@ -7,8 +8,9 @@ const Header = () => {
         <div className="text-2xl font-bold">
           <Link to="/">Pasal</Link>
         </div>
-        <nav>
-          <ul className="flex space-x-4">
+
+        <nav className="navbar navbar-end">
+          <ul className="flex space-x-8">
             <li>
               <Link
                 to="/"
@@ -16,31 +18,22 @@ const Header = () => {
                   location.pathname === "/" ? "border-b-2 border-blue-500" : ""
                 }`}
               >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/about"
-                className={`text-white hover:text-blue-500 focus:text-blue-500 ${
-                  location.pathname === "/about"
-                    ? "border-b-2 border-blue-500"
-                    : ""
-                }`}
-              >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/products"
-                className={`text-white hover:text-blue-500 focus:text-blue-500 ${
-                  location.pathname === "/products"
-                    ? "border-b-2 border-blue-500"
-                    : ""
-                }`}
-              >
-                Products
+                <svg
+                  fill="none"
+                  width="30"
+                  height="26"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                  ></path>
+                </svg>
               </Link>
             </li>
             <li>
@@ -52,7 +45,6 @@ const Header = () => {
                     : ""
                 }`}
               >
-                Cart
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -80,14 +72,12 @@ const Header = () => {
                     : ""
                 }`}
               >
-                Wishlist
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   width="30"
                   height="26"
                   fill="none"
-                  className="ml-3"
                   stroke="currentColor"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -95,21 +85,6 @@ const Header = () => {
                 >
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
-              </Link>
-            </li>
-            <li className="hover:text-gray-300">
-              <Categories />
-            </li>
-            <li>
-              <Link
-                to="/orders"
-                className={`text-white hover:text-blue-500 focus:text-blue-500 ${
-                  location.pathname === "/orders"
-                    ? "border-b-2 border-blue-500"
-                    : ""
-                }`}
-              >
-                Orders
               </Link>
             </li>
             <li>
@@ -121,14 +96,12 @@ const Header = () => {
                     : ""
                 }`}
               >
-                Login
                 <svg
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="1.5"
                   width="30"
                   height="26"
-                  className="ml-2"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
@@ -141,6 +114,80 @@ const Header = () => {
                 </svg>
               </Link>
             </li>
+            <li className="hover:text-gray-300">
+              <Categories />
+            </li>
+
+            <div>
+              <div>
+                <div className="dropdown dropdown-hover">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      aria-hidden="true"
+                      width="30"
+                      height="26"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 17 14"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15"
+                      />
+                    </svg>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link
+                        to="/about"
+                        className={`text-white hover:text-blue-500 focus:text-blue-500 ${
+                          location.pathname === "/about"
+                            ? "border-b-2 border-blue-500"
+                            : ""
+                        }`}
+                      >
+                        About
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/products"
+                        className={`text-white hover:text-blue-500 focus:text-blue-500 ${
+                          location.pathname === "/products"
+                            ? "border-b-2 border-blue-500"
+                            : ""
+                        }`}
+                      >
+                        Products
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/orders"
+                        className={`text-white hover:text-blue-500 focus:text-blue-500 ${
+                          location.pathname === "/orders"
+                            ? "border-b-2 border-blue-500"
+                            : ""
+                        }`}
+                      >
+                        Orders
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </ul>
         </nav>
       </div>
