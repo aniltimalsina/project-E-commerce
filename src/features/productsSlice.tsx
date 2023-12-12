@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { getProduct } from "../hooks/useProduct";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -8,6 +9,53 @@ export const fetchProducts = createAsyncThunk(
     return response.data;
   }
 );
+
+export const fetchCart = createAsyncThunk("products/fetchCart", async () => {
+  const userId = localStorage.getItem("token");
+  const response = await axios.get(
+    `http://localhost:3000/cart/?userId=${userId}`
+  );
+  let cartProduct = [];
+
+  if (response.data[0].products.length > 0) {
+    const productPromises = response.data[0].products.map((id) =>
+      getProduct(id)
+    );
+
+    await Promise.all(productPromises)
+      .then((products) => {
+        //console.log(products);
+        cartProduct = products;
+        console.log("cartProd ->", cartProduct);
+      })
+      .catch((error) => {
+        console.error("Error fetching product:", error);
+      });
+  }
+
+  console.log(cartProduct);
+  return cartProduct;
+  //   console.log(typeof response.data);
+});
+
+export const fetchWishList = createAsyncThunk(
+  "products/fetchWishList",
+  async () => {
+    const response = await axios.get("http://localhost:3000/wishlist");
+    return response.data;
+  }
+);
+
+export const addCart = createAsyncThunk("addCart",async({productId})){
+    const userId = localStorage.getItem("token");
+    try{
+        
+        const response = await axios.patch(`http://localhost:3000/cart/?userId=${userId}`,productId);
+
+    }catch(e){
+        return e
+    }
+}
 
 const productSlice = createSlice({
   name: "products",
@@ -89,12 +137,22 @@ const productSlice = createSlice({
         );
       }
     },
+
     selectCategory: (state, action) => {
       state.selectedCategory = action.payload;
     },
 
+    setProducts: (state, action) => {
+      state.cart = action.payload;
+    },
+
     setSearchInput: (state, action) => {
       state.searchInput = action.payload;
+    },
+    logout: (state) => {
+      state.productsInWishlist = [];
+      state.wishlist = [];
+      state.cart = [];
     },
   },
   extraReducers: (builder) => {
@@ -109,6 +167,13 @@ const productSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.error.message;
+      })
+      .addCase(fetchCart.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchCart.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.status = "succeeded";
       });
   },
 });
@@ -132,6 +197,8 @@ export const {
   moveFromWishlistToCart,
   selectCategory,
   setSearchInput,
+  logout,
+  setProducts,
 } = productSlice.actions;
 export const selectCategoryState = (state) => state.products.selectedCategory;
 export default productSlice.reducer;

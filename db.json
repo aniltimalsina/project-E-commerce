@@ -1160,6 +1160,59 @@
       "email": "test@gmail.com",
       "password": "test123",
       "id": 1
+    },
+    {
+      "username": "test1",
+      "email": "test1@gmail.com",
+      "password": "test123",
+      "id": 2
+    },
+    {
+      "username": "test3",
+      "email": "test3@gmail.com",
+      "password": "test123",
+      "id": 3
+    },
+    {
+      "username": "test4",
+      "email": "test4@gmail.com",
+      "password": "test123",
+      "id": 4
+    },
+    {
+      "username": "test5",
+      "email": "test5@gmail.com",
+      "password": "test123",
+      "id": 5
+    },
+    {
+      "username": "test6",
+      "email": "test6@gmail.com",
+      "password": "test123",
+      "id": 6
+    },
+    {
+      "username": "test7",
+      "email": "test7@gmail.com",
+      "password": "test123",
+      "id": 7
     }
-  ]
+  ],
+  "cart": [
+    {
+      "products": [],
+      "id": 1
+    },
+    {
+      "userId": 6,
+      "products": [],
+      "id": 2
+    },
+    {
+      "userId": 7,
+      "products": [4, 6, 23],
+      "id": 3
+    }
+  ],
+  "wishlist": []
 }

@@ -26,6 +26,7 @@ const Login = () => {
       // Dispatch actions to set user and token in Redux store
       dispatch(setUser(user));
       dispatch(setToken(user.id.toString()));
+      localStorage.setItem("token", user.id);
       return navigate("/");
     } catch (error) {
       console.error("Login error:", error);

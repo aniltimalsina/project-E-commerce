@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../api/authapi";
 import { setUser, setToken } from "../features/authSlice";
+import { registerCart } from "../api/cartapi";
 const Registration = () => {
   const dispatch = useDispatch();
 
@@ -23,6 +24,11 @@ const Registration = () => {
       // Dispatch actions to set user and token in Redux store
       dispatch(setUser(user));
       dispatch(setToken(user.token));
+      const cart = {
+        userId: user.id,
+        products: [],
+      };
+      await registerCart(cart);
     } catch (error) {
       console.error("Registration error:", error);
     }
