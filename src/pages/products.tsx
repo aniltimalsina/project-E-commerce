@@ -2,6 +2,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   fetchProducts,
   addToCart,
@@ -12,9 +13,11 @@ import {
   selectCategory,
   setSearchInput,
   selectCategoryState,
+  addCart,
 } from "../features/productsSlice";
 
 const Products = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const selectedCategory = useSelector(selectCategoryState);
   console.log("Selected Category in ProductsPage:", selectedCategory);
@@ -34,17 +37,25 @@ const Products = () => {
   const handleAddToCart = (productId) => {
     const existingProduct = cart.find((product) => product.id === productId);
 
-    if (existingProduct) {
-      dispatch(removeFromCart(productId));
+    if (localStorage.getItem("token")) {
+      if (existingProduct) {
+        dispatch(removeFromCart(productId));
+      } else {
+        dispatch(addCart(productId));
+      }
     } else {
-      dispatch(addToCart(productId));
+      navigate("/login");
     }
   };
   const handleAddToWishlist = (productId) => {
-    if (productsInWishlist.includes(productId)) {
-      dispatch(removeFromWishlist(productId));
+    if (localStorage.getItem("token")) {
+      if (productsInWishlist.includes(productId)) {
+        dispatch(removeFromWishlist(productId));
+      } else {
+        dispatch(addToWishlist(productId));
+      }
     } else {
-      dispatch(addToWishlist(productId));
+      navigate("/login");
     }
   };
 

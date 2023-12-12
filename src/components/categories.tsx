@@ -33,7 +33,21 @@ const Categories = () => {
     <div>
       <div className="dropdown dropdown-hover">
         <div tabIndex={0} role="button" className="hover:text-gray-300">
-          Categories
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="mt-2"
+            width="30"
+            height="26"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+          >
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+            <line x1="7" x2="7.01" y1="7" y2="7" />
+          </svg>
         </div>
 
         <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">

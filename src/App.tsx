@@ -8,6 +8,7 @@ import Wishlist from "./pages/wishlist";
 import Orders from "./pages/orders";
 import Login from "./pages/login";
 import Registration from "./pages/registration";
+import { PrivateRoute, NaviageToLoginPage } from "./components/privateroute";
 
 function App() {
   return (
@@ -17,10 +18,31 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<Wishlist />} />
+          <Route
+            path="/cart"
+            element={
+              <NaviageToLoginPage>
+                <Cart />
+              </NaviageToLoginPage>
+            }
+          />
+          <Route
+            path="/wishlist"
+            element={
+              <NaviageToLoginPage>
+                <Wishlist />
+              </NaviageToLoginPage>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PrivateRoute>
+                <Login />
+              </PrivateRoute>
+            }
+          />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
         </Route>
       </Routes>

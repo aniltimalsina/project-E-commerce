@@ -1,11 +1,12 @@
 import { useDispatch } from "react-redux";
-import { logoutUser } from "../auth-thunk/auththunk";
+import { logout } from "../features/productsSlice";
 
 const LogoutButton = () => {
   const dispatch = useDispatch();
 
   const handleLogout = () => {
-    dispatch(logoutUser());
+    localStorage.removeItem("token");
+    dispatch(logout());
   };
 
   return <button onClick={handleLogout}>Logout</button>;

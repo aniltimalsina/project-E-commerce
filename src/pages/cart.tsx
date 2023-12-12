@@ -1,13 +1,16 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
 import {
+  fetchCart,
   removeFromCart,
   addToCart,
   selectCart,
   selectCartTotalItems,
   selectCartTotalPrice,
+  setProducts,
 } from "../features/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
@@ -19,6 +22,10 @@ const Cart = () => {
   const handleAddToCart = (productId) => {
     dispatch(addToCart(productId));
   };
+  console.log(cart);
+  useEffect(() => {
+    dispatch(fetchCart());
+  }, [dispatch]);
   return (
     <div>
       <Header />
@@ -70,6 +77,7 @@ const Cart = () => {
                   </div>
                 );
               })}
+
               <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-4">Cart Summary</h2>
                 <p className="text-gray-50 mb-2">Total Items: {totalItems}</p>
