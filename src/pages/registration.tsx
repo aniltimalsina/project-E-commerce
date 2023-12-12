@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../api/authapi";
 import { setUser, setToken } from "../features/authSlice";
-import { registerCart } from "../api/cartapi";
+
 const Registration = () => {
   const dispatch = useDispatch();
 

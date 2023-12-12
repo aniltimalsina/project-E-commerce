@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { getProduct } from "../hooks/useProduct";
+import { fetchUserCart, updateCart } from "../api/cartapi";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -46,16 +47,24 @@ export const fetchWishList = createAsyncThunk(
   }
 );
 
-export const addCart = createAsyncThunk("addCart",async({productId})){
-    const userId = localStorage.getItem("token");
-    try{
-        
-        const response = await axios.patch(`http://localhost:3000/cart/?userId=${userId}`,productId);
+export const addCart = createAsyncThunk(
+  "addCart",
+  async (productId, { rejectWithValue }) => {
+    try {
+      const existingData = await fetchUserCart();
+      console.log("existing-data-> ", existingData);
+      existingData[0].products.push(parseInt(productId));
+      console.log("existing-data ->", existingData[0]);
+      updateCart(existingData[0]);
 
-    }catch(e){
-        return e
+      return updatedData;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data || "Failed to add item to cart"
+      );
     }
-}
+  }
+);
 
 const productSlice = createSlice({
   name: "products",
@@ -174,7 +183,18 @@ const productSlice = createSlice({
       .addCase(fetchCart.fulfilled, (state, action) => {
         state.cart = action.payload;
         state.status = "succeeded";
+      })
+      .addCase(addCart.fulfilled, (state, action) => {
+        state.cart.push(action.payload);
+        state.status = "succeeded";
       });
+    // .addCase(addCart.fulfilled, (state, action) => {
+    //   state.cart.push(action.payload);
+    // })
+    // .addCase(addCart.rejected, (state, action) => {
+    //   state.status = "failed";
+    //   state.error = action.payload; // action.payload contains the error message
+    // });
   },
 });
 

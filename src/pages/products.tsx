@@ -13,6 +13,7 @@ import {
   selectCategory,
   setSearchInput,
   selectCategoryState,
+  addCart,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -40,7 +41,7 @@ const Products = () => {
       if (existingProduct) {
         dispatch(removeFromCart(productId));
       } else {
-        dispatch(addToCart(productId));
+        dispatch(addCart(productId));
       }
     } else {
       navigate("/login");

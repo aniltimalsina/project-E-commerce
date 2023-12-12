@@ -1196,6 +1196,18 @@
       "email": "test7@gmail.com",
       "password": "test123",
       "id": 7
+    },
+    {
+      "username": "test8",
+      "email": "test8@gmail.com",
+      "password": "test123",
+      "id": 8
+    },
+    {
+      "username": "test9",
+      "email": "test9@gmail.com",
+      "password": "test123",
+      "id": 9
     }
   ],
   "cart": [
@@ -1205,13 +1217,25 @@
     },
     {
       "userId": 6,
-      "products": [],
+      "products": [
+        1
+      ],
       "id": 2
     },
     {
       "userId": 7,
-      "products": [4, 6, 23],
+      "products": [
+        4,
+        6,
+        23,
+        1
+      ],
       "id": 3
+    },
+    {
+      "userId": 8,
+      "products": [],
+      "id": 4
     }
   ],
   "wishlist": []
