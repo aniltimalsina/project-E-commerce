@@ -11,6 +11,7 @@ export const updateCart = async (updateCart) => {
   try {
     const cartId = updateCart.id;
     const response = await axios.put(`${BASE_URL}/cart/${cartId}`, updateCart);
+    console.log("updated response ->", response.data);
     return response.data;
   } catch (e) {
     console.log(e);

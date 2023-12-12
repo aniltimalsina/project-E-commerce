@@ -14,6 +14,7 @@ import {
   setSearchInput,
   selectCategoryState,
   addCart,
+  removeProductFromCart,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -35,11 +36,11 @@ const Products = () => {
   }, [dispatch, selectedCategory]);
 
   const handleAddToCart = (productId) => {
-    const existingProduct = cart.find((product) => product.id === productId);
+    const existingProduct = cart.find((item) => item.product.id === productId);
 
     if (localStorage.getItem("token")) {
       if (existingProduct) {
-        dispatch(removeFromCart(productId));
+        dispatch(removeProductFromCart(productId));
       } else {
         dispatch(addCart(productId));
       }
@@ -136,9 +137,10 @@ const Products = () => {
                         className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                         onClick={() => handleAddToCart(product.id)}
                       >
-                        {cart.some((p) => p.id === product.id)
+                        {cart?.some((item) => item.product.id === product.id)
                           ? "Remove from Cart"
                           : "Add to Cart"}
+                        {/* "Add to Cart" */}
                       </button>
                       <button
                         className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
@@ -148,13 +150,6 @@ const Products = () => {
                           ? "Added to Wishlist"
                           : "Add to Wishlist"}
                       </button>
-
-                      {cart.some((p) => p.id === product.id) && (
-                        <p>
-                          Quantity in Cart:{" "}
-                          {cart.find((p) => p.id === product.id).quantity}
-                        </p>
-                      )}
                     </div>
                   </div>
                 </div>

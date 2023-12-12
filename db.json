@@ -1212,24 +1212,16 @@
   ],
   "cart": [
     {
-      "products": [],
-      "id": 1
-    },
-    {
       "userId": 6,
       "products": [
-        1
+        1,
+        64
       ],
       "id": 2
     },
     {
       "userId": 7,
-      "products": [
-        4,
-        6,
-        23,
-        1
-      ],
+      "products": [],
       "id": 3
     },
     {
