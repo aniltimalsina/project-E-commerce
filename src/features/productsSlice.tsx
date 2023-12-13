@@ -1,7 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { getProduct } from "../hooks/useProduct";
-import { fetchUserCart, updateCart } from "../api/cartapi";
+import {
+  fetchUserCart,
+  fetchUserCartSerializer,
+  updateCart,
+} from "../api/cartapi";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -16,33 +20,9 @@ export const fetchCart = createAsyncThunk("products/fetchCart", async () => {
   const response = await axios.get(
     `http://localhost:3000/cart/?userId=${userId}`
   );
-
-  let cartProduct = [];
-  console.log("response -data ->", response.data);
-
-  if (response.data[0].products.length > 0) {
-    const productPromises = await response.data[0].products.map((p) =>
-      getProduct(p.product)
-    );
-
-    await Promise.all(productPromises)
-      .then((products) => {
-        console.log("products ->", products);
-        for (let i = 0; i < products.length; i++) {
-          const productObj = {
-            product: products[i],
-            quantity: response.data[0].products[i].quantity,
-          };
-          cartProduct.push(productObj);
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching product:", error);
-      });
-  }
-
-  console.log("cart ->", cartProduct);
-  return cartProduct;
+  const cartData = await fetchUserCartSerializer();
+  console.log("cart-data ->", cartData);
+  return cartData;
 });
 
 export const fetchWishList = createAsyncThunk(
@@ -58,24 +38,64 @@ export const addCart = createAsyncThunk(
   async (productId, { rejectWithValue }) => {
     try {
       const existingData = await fetchUserCart();
-      console.log("existing-data-> ", existingData);
       const productObj = {
         product: parseInt(productId),
         quantity: 1,
       };
       existingData[0].products.push(productObj);
-      console.log("existing-data ->", existingData[0]);
       const response = await updateCart(existingData[0]);
-      console.log("response from api ", response);
       const productData = await getProduct(parseInt(productId));
       const product = {
         product: productData,
         quantity: response.products[response.products.length - 1].quantity,
       };
-      console.log("new Prod -> ", productData);
       return product;
     } catch (error) {
       console.log("add - cart ", error);
+    }
+  }
+);
+
+export const increaseQuantityCount = createAsyncThunk(
+  "cart/product/quantity-add",
+  async (productId) => {
+    try {
+      const existingData = await fetchUserCart();
+
+      existingData[0].products.forEach((item) => {
+        if (item.product === parseInt(productId)) {
+          item.quantity += 1;
+        }
+      });
+      const response = await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
+
+      return cartData;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const decreaseQuantityCount = createAsyncThunk(
+  "cart/product/quantity-minus",
+  async (productId) => {
+    try {
+      const existingData = await fetchUserCart();
+
+      existingData[0].products.forEach((item) => {
+        if (item.product === parseInt(productId)) {
+          if (item.quantity > 1) {
+            item.quantity -= 1;
+          }
+        }
+      });
+      const response = await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
+
+      return cartData;
+    } catch (e) {
+      console.log(e);
     }
   }
 );
@@ -91,66 +111,13 @@ export const removeProductFromCart = createAsyncThunk(
       );
       console.log("existing-data ->", existingData[0]);
       const response = await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
 
-      let cartProduct = [];
-
-      if (existingData[0].products.length > 0) {
-        const productPromises = existingData[0].products.map((p) =>
-          getProduct(p.product)
-        );
-
-        await Promise.all(productPromises).then((products) => {
-          console.log("cartProd ->", cartProduct);
-          for (let i = 0; i < products.length; i++) {
-            const productObj = {
-              product: products[i],
-              quantity: response.products[i].quantity,
-            };
-            cartProduct.push(productObj);
-          }
-        });
-        return cartProduct;
-      }
-    } catch (error) {
-      return error;
+      return cartData;
+    } catch (e) {
+      console.log(e);
     }
   }
-  // try {
-  //   const state = getState();
-  //   const userId = localStorage.getItem("token");
-  //   console.log(parseInt(userId));
-  //   // Find the user's cart in the state
-  //   const userCart = state.products.cart.find((cartItem) => {
-  //     console.log(cartItem);
-  //     return cartItem.id === productId;
-  //   });
-  //   console.log(userCart);
-  //   console.log(state.products.cart);
-  //   if (userCart) {
-  //     // Filter out the product to be removed
-  //     const updatedProducts = state.products.cart.filter(
-  //       (item) => item.id !== productId
-  //     );
-  //     console.log(updatedProducts);
-  //     // Update only the products array for the specific user in the backend
-  //     await updateCart({
-  //       userId,
-  //       products: updatedProducts,
-  //       id: userCart.id,
-  //     });
-
-  //     // Return the updated products array
-  //     return updatedProducts;
-  //   }
-
-  // If the user's cart is not found, handle accordingly
-  //     return rejectWithValue("User's cart not found");
-  //   } catch (error) {
-  //     // Handle any errors during the process
-  //     console.error("Error removing product from cart:", error);
-  //     throw error;
-  //   }
-  // }
 );
 
 const productSlice = createSlice({
@@ -305,6 +272,14 @@ const productSlice = createSlice({
       .addCase(removeProductFromCart.rejected, (state, action) => {
         state.status = "failed";
         state.error = action.payload;
+      })
+      .addCase(increaseQuantityCount.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.status = "succeeded";
+      })
+      .addCase(decreaseQuantityCount.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.status = "succeeded";
       });
   },
 });

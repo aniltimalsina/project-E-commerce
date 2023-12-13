@@ -7,6 +7,8 @@ import {
   selectCart,
   // selectCartTotalItems,
   selectCartTotalPrice,
+  increaseQuantityCount,
+  decreaseQuantityCount,
 } from "../features/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -21,8 +23,12 @@ const Cart = () => {
     console.log("Current cart in state:", cart);
     dispatch(removeProductFromCart(productId));
   };
-  const handleAddToCart = (productId) => {
-    dispatch(addToCart(productId));
+  const increaseQuantity = (productId) => {
+    dispatch(increaseQuantityCount(productId));
+  };
+
+  const decreaseQuantity = (productId) => {
+    dispatch(decreaseQuantityCount(productId));
   };
   console.log(cart);
   useEffect(() => {
@@ -51,7 +57,7 @@ const Cart = () => {
                       <p className="text-gray-700 mb-2">
                         Quantity:
                         <button
-                          onClick={() => handleRemoveFromCart(item.product.id)}
+                          onClick={() => decreaseQuantity(item.product.id)}
                           className="text-blue-500 hover:underline mx-1"
                         >
                           -
@@ -60,7 +66,7 @@ const Cart = () => {
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() => handleAddToCart(item.product.id)}
+                          onClick={() => increaseQuantity(item.product.id)}
                           className="text-blue-500 hover:underline mx-1"
                         >
                           +
