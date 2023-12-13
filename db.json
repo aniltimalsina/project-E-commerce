@@ -1223,12 +1223,16 @@
       "userId": 7,
       "products": [
         {
-          "product": 9,
+          "product": 3,
           "quantity": 3
         },
         {
-          "product": 3,
-          "quantity": 2
+          "product": 6,
+          "quantity": 3
+        },
+        {
+          "product": 5,
+          "quantity": 1
         }
       ],
       "id": 3
@@ -1239,5 +1243,11 @@
       "id": 4
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "userId": 7,
+      "products": [],
+      "id": 1
+    }
+  ]
 }

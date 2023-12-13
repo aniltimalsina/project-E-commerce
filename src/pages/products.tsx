@@ -5,16 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   fetchProducts,
-  addToCart,
-  removeFromCart,
   selectCart,
-  addToWishlist,
   removeFromWishlist,
   selectCategory,
   setSearchInput,
   selectCategoryState,
   addCart,
   removeProductFromCart,
+  addWishlist,
+  selectWishlist,
+  removeProductFromWishlist,
 } from "../features/productsSlice";
 
 const Products = () => {
@@ -30,6 +30,8 @@ const Products = () => {
     searchInput,
   } = useSelector((state) => state.products);
   const cart = useSelector(selectCart);
+  const wishlist = useSelector(selectWishlist);
+  console.log("----->", wishlist);
 
   useEffect(() => {
     dispatch(fetchProducts(selectedCategory)); // Pass selectedCategory to fetchProducts
@@ -50,10 +52,10 @@ const Products = () => {
   };
   const handleAddToWishlist = (productId) => {
     if (localStorage.getItem("token")) {
-      if (productsInWishlist.includes(productId)) {
-        dispatch(removeFromWishlist(productId));
+      if (wishlist.find((item) => item.id === productId)) {
+        dispatch(removeProductFromWishlist(productId));
       } else {
-        dispatch(addToWishlist(productId));
+        dispatch(addWishlist(productId));
       }
     } else {
       navigate("/login");
@@ -146,7 +148,7 @@ const Products = () => {
                         className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
                         onClick={() => handleAddToWishlist(product.id)}
                       >
-                        {productsInWishlist.includes(product.id)
+                        {wishlist?.some((item) => item.id === product.id)
                           ? "Added to Wishlist"
                           : "Add to Wishlist"}
                       </button>
