@@ -1221,7 +1221,16 @@
     },
     {
       "userId": 7,
-      "products": [],
+      "products": [
+        {
+          "product": 9,
+          "quantity": 1
+        },
+        {
+          "product": 3,
+          "quantity": 1
+        }
+      ],
       "id": 3
     },
     {

@@ -314,11 +314,12 @@ export const selectCart = (state) => state.products.cart;
 // export const selectCartTotalItems = (state) =>
 //   state.products.cart.reduce((total, product) => total + product.quantity, 0);
 
-// export const selectCartTotalPrice = (state) =>
-//   state.products.cart.reduce(
-//     (total, product) => total + product.price * product.quantity,
-//     0
-//   );
+export const selectCartTotalPrice = (state) => {
+  return state.products.cart.reduce((total, item) => {
+    const productPrice = item.product.price || 0; // Ensure there's a default value if the price is missing
+    return total + productPrice * item.quantity;
+  }, 0);
+};
 
 export const {
   addToCart,
