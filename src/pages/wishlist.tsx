@@ -4,19 +4,28 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   removeFromWishlist,
   moveFromWishlistToCart,
+  removeProductFromWishlist,
+  addCart,
+  fetchWishList,
+  moveToCart,
 } from "../features/productsSlice";
+import { useEffect } from "react";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
   const wishlist = useSelector((state) => state.products.wishlist);
 
   const handleRemoveFromWishlist = (productId) => {
-    dispatch(removeFromWishlist(productId));
+    dispatch(removeProductFromWishlist(productId));
   };
 
   const handleAddToCartFromWishlist = (productId) => {
-    dispatch(moveFromWishlistToCart(productId));
+    dispatch(moveToCart(productId));
   };
+  console.log("wishlist ", wishlist);
+  useEffect(() => {
+    dispatch(fetchWishList());
+  }, [dispatch]);
 
   return (
     <div>

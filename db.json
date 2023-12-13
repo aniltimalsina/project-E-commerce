@@ -1212,23 +1212,28 @@
   ],
   "cart": [
     {
-      "products": [],
-      "id": 1
-    },
-    {
       "userId": 6,
       "products": [
-        1
+        1,
+        64
       ],
       "id": 2
     },
     {
       "userId": 7,
       "products": [
-        4,
-        6,
-        23,
-        1
+        {
+          "product": 3,
+          "quantity": 3
+        },
+        {
+          "product": 6,
+          "quantity": 3
+        },
+        {
+          "product": 5,
+          "quantity": 1
+        }
       ],
       "id": 3
     },
@@ -1238,5 +1243,11 @@
       "id": 4
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "userId": 7,
+      "products": [],
+      "id": 1
+    }
+  ]
 }

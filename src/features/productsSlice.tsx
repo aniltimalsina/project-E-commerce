@@ -1,7 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { getProduct } from "../hooks/useProduct";
-import { fetchUserCart, updateCart } from "../api/cartapi";
+import {
+  fetchUserCart,
+  fetchUserCartSerializer,
+  updateCart,
+} from "../api/cartapi";
+import {
+  fetchUserWishlist,
+  fetchUserWishlistSerializer,
+  updateWishlist,
+} from "../api/wishlistapi";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
@@ -16,34 +25,21 @@ export const fetchCart = createAsyncThunk("products/fetchCart", async () => {
   const response = await axios.get(
     `http://localhost:3000/cart/?userId=${userId}`
   );
-  let cartProduct = [];
-
-  if (response.data[0].products.length > 0) {
-    const productPromises = response.data[0].products.map((id) =>
-      getProduct(id)
-    );
-
-    await Promise.all(productPromises)
-      .then((products) => {
-        //console.log(products);
-        cartProduct = products;
-        console.log("cartProd ->", cartProduct);
-      })
-      .catch((error) => {
-        console.error("Error fetching product:", error);
-      });
-  }
-
-  console.log(cartProduct);
-  return cartProduct;
-  //   console.log(typeof response.data);
+  console.log(response.data);
+  const cartData = await fetchUserCartSerializer();
+  console.log("cart-data ->", cartData);
+  return cartData;
 });
 
 export const fetchWishList = createAsyncThunk(
   "products/fetchWishList",
   async () => {
-    const response = await axios.get("http://localhost:3000/wishlist");
-    return response.data;
+    const response = await axios.get(
+      "http://localhost:3000/wishlist?userId=${userId}"
+    );
+    const wishlistData = await fetchUserWishlistSerializer();
+    console.log("wishlist -data ", wishlistData);
+    return wishlistData;
   }
 );
 
@@ -52,20 +48,168 @@ export const addCart = createAsyncThunk(
   async (productId, { rejectWithValue }) => {
     try {
       const existingData = await fetchUserCart();
-      console.log("existing-data-> ", existingData);
-      existingData[0].products.push(parseInt(productId));
-      console.log("existing-data ->", existingData[0]);
-      updateCart(existingData[0]);
-
-      return updatedData;
+      const productObj = {
+        product: parseInt(productId),
+        quantity: 1,
+      };
+      existingData[0].products.push(productObj);
+      const response = await updateCart(existingData[0]);
+      const productData = await getProduct(parseInt(productId));
+      const product = {
+        product: productData,
+        quantity: response.products[response.products.length - 1].quantity,
+      };
+      return product;
     } catch (error) {
-      return rejectWithValue(
-        error.response?.data || "Failed to add item to cart"
-      );
+      console.log("add - cart ", error);
     }
   }
 );
 
+export const moveToCart = createAsyncThunk(
+  "moveCart",
+  async (productId, { rejectWithValue }) => {
+    try {
+      let doesExist = false;
+      const existingData = await fetchUserCart();
+      const wishlistData = await fetchUserWishlist();
+      existingData[0].products.forEach((element) => {
+        if (element.product === parseInt(productId)) {
+          element.quantity += 1;
+          doesExist = true;
+        }
+      });
+      console.log("cart update ", existingData[0]);
+      if (!doesExist) {
+        const productObj = {
+          product: parseInt(productId),
+          quantity: 1,
+        };
+        existingData[0].products.push(productObj);
+        const response = await updateCart(existingData[0]);
+
+        const productData = await getProduct(parseInt(productId));
+        const product = {
+          product: productData,
+          quantity: response.products[response.products.length - 1].quantity,
+        };
+        wishlistData[0].products = wishlistData[0].products.filter(
+          (p) => p !== parseInt(productId)
+        );
+        await updateWishlist(wishlistData[0]);
+        return product;
+      }
+      await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
+      wishlistData[0].products = wishlistData[0].products.filter(
+        (p) => p !== parseInt(productId)
+      );
+      await updateWishlist(wishlistData[0]);
+      return cartData;
+    } catch (error) {
+      console.log("add - cart ", error);
+    }
+  }
+);
+
+export const addWishlist = createAsyncThunk(
+  "addWishlist",
+  async (productId, { rejectWithValue }) => {
+    try {
+      const existingData = await fetchUserWishlist();
+      existingData[0].products.push(parseInt(productId));
+      await updateWishlist(existingData[0]);
+      const productData = await getProduct(parseInt(productId));
+      return productData;
+    } catch (error) {
+      console.log("add - cart ", error);
+    }
+  }
+);
+
+export const increaseQuantityCount = createAsyncThunk(
+  "cart/product/quantity-add",
+  async (productId) => {
+    try {
+      const existingData = await fetchUserCart();
+
+      existingData[0].products.forEach((item) => {
+        if (item.product === parseInt(productId)) {
+          item.quantity += 1;
+        }
+      });
+      await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
+
+      return cartData;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const decreaseQuantityCount = createAsyncThunk(
+  "cart/product/quantity-minus",
+  async (productId) => {
+    try {
+      const existingData = await fetchUserCart();
+
+      existingData[0].products.forEach((item) => {
+        if (item.product === parseInt(productId)) {
+          if (item.quantity > 1) {
+            item.quantity -= 1;
+          }
+        }
+      });
+      const response = await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
+
+      return cartData;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const removeProductFromCart = createAsyncThunk(
+  "products/removeProductFromCart",
+  async (productId, { getState, rejectWithValue }) => {
+    try {
+      const existingData = await fetchUserCart();
+      console.log("existing-data-> ", existingData);
+      existingData[0].products = existingData[0].products.filter(
+        (p) => p.product !== parseInt(productId)
+      );
+      console.log("existing-data ->", existingData[0]);
+      const response = await updateCart(existingData[0]);
+      const cartData = await fetchUserCartSerializer();
+
+      return cartData;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
+
+export const removeProductFromWishlist = createAsyncThunk(
+  "products/removeProductFromWhishlist",
+  async (productId, { getState, rejectWithValue }) => {
+    try {
+      const existingData = await fetchUserWishlist();
+      console.log("existing-data-> ", existingData);
+      existingData[0].products = existingData[0].products.filter(
+        (p) => p !== parseInt(productId)
+      );
+      console.log("existing-data ->", existingData[0]);
+      await updateWishlist(existingData[0]);
+      const wishlistData = await fetchUserWishlistSerializer();
+
+      return wishlistData;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+);
 const productSlice = createSlice({
   name: "products",
   initialState: {
@@ -183,31 +327,87 @@ const productSlice = createSlice({
       .addCase(fetchCart.fulfilled, (state, action) => {
         state.cart = action.payload;
         state.status = "succeeded";
+        console.log("Fetched cart:", action.payload);
       })
       .addCase(addCart.fulfilled, (state, action) => {
+        // const productAdded = getProduct(action.payload.id);
         state.cart.push(action.payload);
         state.status = "succeeded";
+      })
+      .addCase(addCart.pending, (state) => {
+        state.status = "pending";
+      })
+      .addCase(addCart.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload; // action.payload contains the error message
+      })
+
+      .addCase(removeProductFromCart.fulfilled, (state, action) => {
+        console.log("state ->", state.cart);
+        console.log("action ", action.payload);
+        state.cart = action.payload;
+        state.status = "succeeded";
+        // Find the user's cart in the state
+        // const userCart = state.cart.find(
+        //   (cartItem) =>
+        //     cartItem.userId === parseInt(localStorage.getItem("token"))
+        // );
+
+        // if (userCart) {
+        //   // Update only the products array for the specific user in the state
+        //   userCart.products = action.payload;
+        //   state.status = "succeeded";
+        // }
+      })
+      .addCase(removeProductFromCart.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.payload;
+      })
+      .addCase(increaseQuantityCount.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.status = "succeeded";
+      })
+      .addCase(decreaseQuantityCount.fulfilled, (state, action) => {
+        state.cart = action.payload;
+        state.status = "succeeded";
+      })
+      .addCase(addWishlist.fulfilled, (state, action) => {
+        state.wishlist.push(action.payload);
+        state.status = "succeeded";
+      })
+      .addCase(fetchWishList.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.wishlist = action.payload;
+      })
+      .addCase(removeProductFromWishlist.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.wishlist = action.payload;
+      })
+      .addCase(moveToCart.fulfilled, (state, action) => {
+        // const productAdded = getProduct(action.payload.id);
+        const newData = action.payload;
+        if (Array.isArray(newData)) {
+          state.cart = action.payload;
+        } else {
+          state.cart.push(action.payload);
+        }
+        state.status = "succeeded";
       });
-    // .addCase(addCart.fulfilled, (state, action) => {
-    //   state.cart.push(action.payload);
-    // })
-    // .addCase(addCart.rejected, (state, action) => {
-    //   state.status = "failed";
-    //   state.error = action.payload; // action.payload contains the error message
-    // });
   },
 });
 
 export const selectCart = (state) => state.products.cart;
+export const selectWishlist = (state) => state.products.wishlist;
 
-export const selectCartTotalItems = (state) =>
-  state.products.cart.reduce((total, product) => total + product.quantity, 0);
+// export const selectCartTotalItems = (state) =>
+//   state.products.cart.reduce((total, product) => total + product.quantity, 0);
 
-export const selectCartTotalPrice = (state) =>
-  state.products.cart.reduce(
-    (total, product) => total + product.price * product.quantity,
-    0
-  );
+export const selectCartTotalPrice = (state) => {
+  return state.products.cart.reduce((total, item) => {
+    const productPrice = item.product.price || 0; // Ensure there's a default value if the price is missing
+    return total + productPrice * item.quantity;
+  }, 0);
+};
 
 export const {
   addToCart,

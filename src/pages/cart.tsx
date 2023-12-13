@@ -2,25 +2,33 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import {
   fetchCart,
-  removeFromCart,
+  removeProductFromCart,
   addToCart,
   selectCart,
-  selectCartTotalItems,
+  // selectCartTotalItems,
   selectCartTotalPrice,
-  setProducts,
+  increaseQuantityCount,
+  decreaseQuantityCount,
 } from "../features/productsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector(selectCart);
-  const totalItems = useSelector(selectCartTotalItems);
+  // const totalItems = useSelector(selectCartTotalItems);
   const totalPrice = useSelector(selectCartTotalPrice);
+  console.log(totalPrice);
   const handleRemoveFromCart = (productId) => {
-    dispatch(removeFromCart(productId));
+    console.log("Removing product with ID:", productId);
+    console.log("Current cart in state:", cart);
+    dispatch(removeProductFromCart(productId));
   };
-  const handleAddToCart = (productId) => {
-    dispatch(addToCart(productId));
+  const increaseQuantity = (productId) => {
+    dispatch(increaseQuantityCount(productId));
+  };
+
+  const decreaseQuantity = (productId) => {
+    dispatch(decreaseQuantityCount(productId));
   };
   console.log(cart);
   useEffect(() => {
@@ -34,43 +42,43 @@ const Cart = () => {
           <div>
             {/* <!-- Cart Items --> */}
             <div className="container mx-auto my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {cart.map((product) => {
+              {cart?.map((item) => {
                 return (
-                  <div key={product.id}>
+                  <div key={item.product.id}>
                     <div className="bg-white p-4 rounded-md shadow-md">
                       <img
-                        src={`/images/${product.img}`}
+                        src={`/images/${item.product.img}`}
                         alt="Product 1"
                         className="w-full h-auto mb-4"
                       />
                       <h2 className="text-xl font-semibold mb-2">
-                        {product.name}
+                        {item.product.name}
                       </h2>
                       <p className="text-gray-700 mb-2">
                         Quantity:
                         <button
-                          onClick={() => handleRemoveFromCart(product.id)}
+                          onClick={() => decreaseQuantity(item.product.id)}
                           className="text-blue-500 hover:underline mx-1"
                         >
                           -
                         </button>
                         <span className="border border-gray-300 p-1 rounded-md">
-                          {product.quantity}
+                          {item.quantity}
                         </span>
                         <button
-                          onClick={() => handleAddToCart(product.id)}
+                          onClick={() => increaseQuantity(item.product.id)}
                           className="text-blue-500 hover:underline mx-1"
                         >
                           +
                         </button>
                       </p>
                       <p className="text-gray-700">
-                        Price: ${product.price} each
+                        Price: ${item.product.price} each
                       </p>
                     </div>
                     <button
                       className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red"
-                      onClick={() => handleRemoveFromCart(product.id)}
+                      onClick={() => handleRemoveFromCart(item.product.id)}
                     >
                       Remove from Cart
                     </button>
@@ -80,9 +88,10 @@ const Cart = () => {
 
               <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-4">Cart Summary</h2>
-                <p className="text-gray-50 mb-2">Total Items: {totalItems}</p>
+                <p className="text-gray-50 mb-2">Total Items: $100</p>
                 <p className="text-gray-50">
-                  Total Price: ${totalPrice.toFixed(2)}
+                  Total Price: ${totalPrice}
+                  {/* Total Price: $1000 */}
                 </p>
               </div>
 
