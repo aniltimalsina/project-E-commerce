@@ -42,7 +42,14 @@ function App() {
               </PrivateRoute>
             }
           />
-          <Route path="/orders" element={<Orders />} />
+          <Route
+            path="/orders"
+            element={
+              <NaviageToLoginPage>
+                <Orders />
+              </NaviageToLoginPage>
+            }
+          />
           <Route path="/register" element={<Registration />} />
         </Route>
       </Routes>

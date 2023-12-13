@@ -97,15 +97,18 @@ export const moveToCart = createAsyncThunk(
           (p) => p !== parseInt(productId)
         );
         await updateWishlist(wishlistData[0]);
-        return product;
+        const wishlistDatas = await fetchUserWishlistSerializer();
+
+        return wishlistDatas;
       }
       await updateCart(existingData[0]);
-      const cartData = await fetchUserCartSerializer();
       wishlistData[0].products = wishlistData[0].products.filter(
         (p) => p !== parseInt(productId)
       );
       await updateWishlist(wishlistData[0]);
-      return cartData;
+      const wishlistDatas = await fetchUserWishlistSerializer();
+
+      return wishlistDatas;
     } catch (error) {
       console.log("add - cart ", error);
     }
@@ -385,12 +388,13 @@ const productSlice = createSlice({
       })
       .addCase(moveToCart.fulfilled, (state, action) => {
         // const productAdded = getProduct(action.payload.id);
-        const newData = action.payload;
-        if (Array.isArray(newData)) {
-          state.cart = action.payload;
-        } else {
-          state.cart.push(action.payload);
-        }
+        // const newData = action.payload;
+        // if (Array.isArray(newData)) {
+        //   state.wishlist = action.payload;
+        // } else {
+        //   state.cart.push(action.payload);
+        // }
+        state.wishlist = action.payload;
         state.status = "succeeded";
       });
   },

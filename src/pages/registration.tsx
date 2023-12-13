@@ -1,13 +1,16 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../api/authapi";
+import { doesUserExist, hashPassword, registerUser } from "../api/authapi";
 import { setUser, setToken } from "../features/authSlice";
+import { registerWishlist } from "../api/wishlistapi";
+import { registerCart } from "../api/cartapi";
 
 const Registration = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     username: "",
@@ -18,17 +21,32 @@ const Registration = () => {
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleRegister = async () => {
+  const handleRegister = async (e) => {
+    e.preventDefault();
     try {
-      const user = await registerUser(formData);
-      // Dispatch actions to set user and token in Redux store
-      dispatch(setUser(user));
-      dispatch(setToken(user.token));
-      const cart = {
-        userId: user.id,
-        products: [],
-      };
-      await registerCart(cart);
+      const userExist = await doesUserExist(formData);
+      if (!userExist) {
+        const hashedPassword = await hashPassword(formData);
+        setFormData({ ...formData, password: hashedPassword });
+        const user = await registerUser({
+          ...formData,
+          password: hashedPassword,
+        });
+
+        const obj = {
+          userId: user.id,
+          products: [],
+        };
+
+        await registerCart(obj);
+        await registerWishlist(obj);
+        // Dispatch actions to set user and token in Redux store
+        dispatch(setUser(user));
+        dispatch(setToken(user.token));
+        navigate("/login");
+      } else {
+        alert("user already exist");
+      }
     } catch (error) {
       console.error("Registration error:", error);
     }
@@ -42,7 +60,7 @@ const Registration = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Create an Account
             </h2>
-            <form onSubmit={handleRegister}>
+            <form onSubmit={handleRegister} method="post">
               <div className="mb-4">
                 <label
                   htmlFor="username"

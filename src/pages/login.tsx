@@ -17,11 +17,10 @@ const Login = () => {
   const handleInputChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
-      console.log("Attempting login with credentials:", credentials);
       const user = await loginUser(credentials);
-      console.log("Login successful. User:", user);
 
       // Dispatch actions to set user and token in Redux store
       dispatch(setUser(user));
@@ -42,7 +41,7 @@ const Login = () => {
             <h2 className="text-2xl font-semibold mb-6 text-center">
               Login to Your Account
             </h2>
-            <form>
+            <form method="post">
               <div className="mb-4">
                 <label
                   htmlFor="username"
