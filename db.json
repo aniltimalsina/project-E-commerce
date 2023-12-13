@@ -1246,7 +1246,10 @@
   "wishlist": [
     {
       "userId": 7,
-      "products": [],
+      "products": [
+        17,
+        18
+      ],
       "id": 1
     }
   ]
