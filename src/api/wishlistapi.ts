@@ -3,6 +3,11 @@ import { getProduct } from "../hooks/useProduct";
 
 const BASE_URL = "http://localhost:3000";
 
+export const registerWishlist = async (wishlistData) => {
+  const response = await axios.post(`${BASE_URL}/wishlist`, wishlistData);
+  return response.data;
+};
+
 export const updateWishlist = async (updateWishlist) => {
   try {
     const wishlistId = updateWishlist.id;

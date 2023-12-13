@@ -6,17 +6,8 @@
       "name": "Casual T-Shirt 1",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "XL",
-        "L",
-        "M",
-        "S"
-      ],
-      "color": [
-        "black",
-        "gray",
-        "green"
-      ],
+      "size": ["XL", "L", "M", "S"],
+      "color": ["black", "gray", "green"],
       "gender": "male",
       "price": 45
     },
@@ -26,16 +17,8 @@
       "name": "Casual T-Shirt 2",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "red",
-        "brown"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["black", "red", "brown"],
       "gender": "male",
       "price": 55
     },
@@ -45,15 +28,8 @@
       "name": "Casual T-Shirt 3",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "L",
-        "XL"
-      ],
-      "color": [
-        "brown",
-        "gray",
-        "yellow"
-      ],
+      "size": ["L", "XL"],
+      "color": ["brown", "gray", "yellow"],
       "gender": "female",
       "price": 75
     },
@@ -63,16 +39,8 @@
       "name": "Casual T-Shirt 4",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "orange",
-        "blue"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["gray", "orange", "blue"],
       "gender": "female",
       "price": 25
     },
@@ -82,16 +50,8 @@
       "name": "Casual T-Shirt 5",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "brown",
-        "blue"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["black", "brown", "blue"],
       "gender": "female",
       "price": 15
     },
@@ -101,16 +61,8 @@
       "name": "Casual T-Shirt 6",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "purple",
-        "yellow"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["gray", "purple", "yellow"],
       "gender": "female",
       "price": 25
     },
@@ -120,16 +72,8 @@
       "name": "Casual T-Shirt 7",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "orange",
-        "blue"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["black", "orange", "blue"],
       "gender": "male",
       "price": 25
     },
@@ -139,15 +83,8 @@
       "name": "Casual T-Shirt 8",
       "text": "Shop smarter, live better",
       "type": "T-Shirts",
-      "size": [
-        "M",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "red",
-        "blue"
-      ],
+      "size": ["M", "XL"],
+      "color": ["gray", "red", "blue"],
       "gender": "male",
       "price": 35
     },
@@ -157,16 +94,8 @@
       "name": "Casual Hoodie 1",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "red",
-        "green"
-      ],
+      "size": ["S", "L", "XL"],
+      "color": ["blue", "red", "green"],
       "gender": "female",
       "price": 85
     },
@@ -176,16 +105,8 @@
       "name": "Casual Hoodie 2",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "purple",
-        "black"
-      ],
+      "size": ["S", "L", "XL"],
+      "color": ["gray", "purple", "black"],
       "gender": "female",
       "price": 95
     },
@@ -195,16 +116,8 @@
       "name": "Casual Hoodie 3",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "M",
-        "XL"
-      ],
-      "color": [
-        "red",
-        "blue",
-        "black"
-      ],
+      "size": ["S", "M", "XL"],
+      "color": ["red", "blue", "black"],
       "gender": "male",
       "price": 95
     },
@@ -214,15 +127,8 @@
       "name": "Casual Hoodie 4",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "blue",
-        "red"
-      ],
+      "size": ["S", "XL"],
+      "color": ["gray", "blue", "red"],
       "gender": "male",
       "price": 125
     },
@@ -232,15 +138,8 @@
       "name": "Casual Hoodie 5",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "blue",
-        "red"
-      ],
+      "size": ["S", "XL"],
+      "color": ["gray", "blue", "red"],
       "gender": "female",
       "price": 250
     },
@@ -250,15 +149,8 @@
       "name": "Casual Hoodie 6",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "yellow",
-        "blue"
-      ],
+      "size": ["S", "XL"],
+      "color": ["gray", "yellow", "blue"],
       "gender": "male",
       "price": 125
     },
@@ -268,16 +160,8 @@
       "name": "Casual Hoodie 7",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "blue"
-      ],
+      "size": ["S", "M", "L", "XL"],
+      "color": ["black", "blue"],
       "gender": "male",
       "price": 450
     },
@@ -287,17 +171,8 @@
       "name": "Casual Hoodie 8",
       "text": "Shop smarter, live better",
       "type": "Hoodies",
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "green",
-        "yellow",
-        "red"
-      ],
+      "size": ["S", "M", "L", "XL"],
+      "color": ["green", "yellow", "red"],
       "gender": "female",
       "price": 355
     },
@@ -307,16 +182,8 @@
       "name": "Casual Shoes 1",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "40",
-        "42",
-        "44",
-        "46"
-      ],
-      "color": [
-        "black",
-        "gray"
-      ],
+      "size": ["40", "42", "44", "46"],
+      "color": ["black", "gray"],
       "gender": "male",
       "price": 200
     },
@@ -326,16 +193,8 @@
       "name": "Casual Shoes 2",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "40",
-        "42",
-        "44",
-        "46"
-      ],
-      "color": [
-        "brown",
-        "gray"
-      ],
+      "size": ["40", "42", "44", "46"],
+      "color": ["brown", "gray"],
       "gender": "female",
       "price": 250
     },
@@ -345,17 +204,8 @@
       "name": "Casual Shoes 3",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "36",
-        "38",
-        "40",
-        "42"
-      ],
-      "color": [
-        "black",
-        "gray",
-        "blue"
-      ],
+      "size": ["36", "38", "40", "42"],
+      "color": ["black", "gray", "blue"],
       "gender": "female",
       "price": 685
     },
@@ -365,16 +215,8 @@
       "name": "Casual Shoes 4",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "36",
-        "38",
-        "40",
-        "42"
-      ],
-      "color": [
-        "black",
-        "gray"
-      ],
+      "size": ["36", "38", "40", "42"],
+      "color": ["black", "gray"],
       "gender": "male",
       "price": 255
     },
@@ -384,17 +226,8 @@
       "name": "Casual Shoes 5",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "36",
-        "38",
-        "40",
-        "42"
-      ],
-      "color": [
-        "purple",
-        "gray",
-        "black"
-      ],
+      "size": ["36", "38", "40", "42"],
+      "color": ["purple", "gray", "black"],
       "gender": "male",
       "price": 355
     },
@@ -404,17 +237,8 @@
       "name": "Casual Shoes 6",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "36",
-        "38",
-        "40",
-        "42"
-      ],
-      "color": [
-        "purple",
-        "gray",
-        "black"
-      ],
+      "size": ["36", "38", "40", "42"],
+      "color": ["purple", "gray", "black"],
       "gender": "male",
       "price": 200
     },
@@ -424,17 +248,8 @@
       "name": "Casual Shoes 7",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "36",
-        "38",
-        "40",
-        "42"
-      ],
-      "color": [
-        "purple",
-        "green",
-        "black"
-      ],
+      "size": ["36", "38", "40", "42"],
+      "color": ["purple", "green", "black"],
       "gender": "male",
       "price": 100
     },
@@ -444,17 +259,8 @@
       "name": "Casual Shoes 8",
       "text": "Shop smarter, live better",
       "type": "Shoes",
-      "size": [
-        "36",
-        "38",
-        "40",
-        "42"
-      ],
-      "color": [
-        "purple",
-        "green",
-        "black"
-      ],
+      "size": ["36", "38", "40", "42"],
+      "color": ["purple", "green", "black"],
       "gender": "male",
       "price": 135
     },
@@ -464,15 +270,8 @@
       "name": "Casual Dress 1",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "L",
-        "XL"
-      ],
-      "color": [
-        "purple",
-        "blue",
-        "gray"
-      ],
+      "size": ["L", "XL"],
+      "color": ["purple", "blue", "gray"],
       "gender": "female",
       "price": 355
     },
@@ -482,16 +281,8 @@
       "name": "Casual Dress 2",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "S",
-        "M",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "gray",
-        "green"
-      ],
+      "size": ["S", "M", "XL"],
+      "color": ["black", "gray", "green"],
       "gender": "female",
       "price": 255
     },
@@ -501,16 +292,8 @@
       "name": "Casual Dress 3",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "S",
-        "M",
-        "XL"
-      ],
-      "color": [
-        "purple",
-        "blue",
-        "red"
-      ],
+      "size": ["S", "M", "XL"],
+      "color": ["purple", "blue", "red"],
       "gender": "female",
       "price": 65
     },
@@ -520,16 +303,8 @@
       "name": "Casual Dress 4",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "yellow",
-        "blue",
-        "orange"
-      ],
+      "size": ["S", "L", "XL"],
+      "color": ["yellow", "blue", "orange"],
       "gender": "female",
       "price": 185
     },
@@ -539,15 +314,8 @@
       "name": "Casual Dress 5",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "yellow",
-        "orange"
-      ],
+      "size": ["S", "L", "XL"],
+      "color": ["yellow", "orange"],
       "gender": "female",
       "price": 555
     },
@@ -557,15 +325,8 @@
       "name": "Casual Dress 6",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "S",
-        "M"
-      ],
-      "color": [
-        "yellow",
-        "blue",
-        "black"
-      ],
+      "size": ["S", "M"],
+      "color": ["yellow", "blue", "black"],
       "gender": "female",
       "price": 345
     },
@@ -575,15 +336,8 @@
       "name": "Casual Dress 7",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "S",
-        "M"
-      ],
-      "color": [
-        "orange",
-        "blue",
-        "black"
-      ],
+      "size": ["S", "M"],
+      "color": ["orange", "blue", "black"],
       "gender": "female",
       "price": 345
     },
@@ -593,15 +347,8 @@
       "name": "Casual Dress 8",
       "text": "Shop smarter, live better",
       "type": "Dresses",
-      "size": [
-        "M",
-        "L"
-      ],
-      "color": [
-        "brown",
-        "blue",
-        "red"
-      ],
+      "size": ["M", "L"],
+      "color": ["brown", "blue", "red"],
       "gender": "female",
       "price": 685
     },
@@ -611,15 +358,8 @@
       "name": "Casual Jeans 1",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "S",
-        "M",
-        "L"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["S", "M", "L"],
+      "color": ["blue", "black"],
       "gender": "male",
       "price": 55
     },
@@ -629,14 +369,8 @@
       "name": "Casual Jeans 2",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "S",
-        "M"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["S", "M"],
+      "color": ["blue", "black"],
       "gender": "female",
       "price": 75
     },
@@ -646,15 +380,8 @@
       "name": "Casual Jeans 3",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["blue", "black"],
       "gender": "male",
       "price": 95
     },
@@ -664,15 +391,8 @@
       "name": "Casual Jeans 4",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["blue", "black"],
       "gender": "female",
       "price": 100
     },
@@ -682,15 +402,8 @@
       "name": "Casual Jeans 5",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["blue", "black"],
       "gender": "female",
       "price": 200
     },
@@ -700,15 +413,8 @@
       "name": "Casual Jeans 6",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["S", "L", "XL"],
+      "color": ["blue", "black"],
       "gender": "female",
       "price": 200
     },
@@ -718,15 +424,8 @@
       "name": "Casual Jeans 7",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["blue", "black"],
       "gender": "male",
       "price": 180
     },
@@ -736,15 +435,8 @@
       "name": "Casual Jeans 8",
       "text": "Shop smarter, live better",
       "type": "Jeans",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "black"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["blue", "black"],
       "gender": "male",
       "price": 160
     },
@@ -754,15 +446,8 @@
       "name": "Casual Jacket 1",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "blue"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["black", "blue"],
       "gender": "male",
       "price": 400
     },
@@ -772,15 +457,8 @@
       "name": "Casual Jacket 2",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "S",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "brown"
-      ],
+      "size": ["S", "L", "XL"],
+      "color": ["gray", "brown"],
       "gender": "male",
       "price": 255
     },
@@ -790,14 +468,8 @@
       "name": "Casual Jacket 3",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "S",
-        "M"
-      ],
-      "color": [
-        "gray",
-        "brown"
-      ],
+      "size": ["S", "M"],
+      "color": ["gray", "brown"],
       "gender": "male",
       "price": 300
     },
@@ -807,15 +479,8 @@
       "name": "Casual Jacket 4",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "S",
-        "M",
-        "L"
-      ],
-      "color": [
-        "gray",
-        "brown"
-      ],
+      "size": ["S", "M", "L"],
+      "color": ["gray", "brown"],
       "gender": "male",
       "price": 185
     },
@@ -825,15 +490,8 @@
       "name": "Casual Jacket 5",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "S",
-        "M",
-        "L"
-      ],
-      "color": [
-        "gray",
-        "brown"
-      ],
+      "size": ["S", "M", "L"],
+      "color": ["gray", "brown"],
       "gender": "female",
       "price": 185
     },
@@ -843,16 +501,8 @@
       "name": "Casual Jacket 6",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "S",
-        "M",
-        "XL"
-      ],
-      "color": [
-        "gray",
-        "brown",
-        "black"
-      ],
+      "size": ["S", "M", "XL"],
+      "color": ["gray", "brown", "black"],
       "gender": "male",
       "price": 285
     },
@@ -862,15 +512,8 @@
       "name": "Casual Jacket 7",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "S",
-        "M",
-        "XL"
-      ],
-      "color": [
-        "brown",
-        "black"
-      ],
+      "size": ["S", "M", "XL"],
+      "color": ["brown", "black"],
       "gender": "female",
       "price": 425
     },
@@ -880,16 +523,8 @@
       "name": "Casual Jacket 8",
       "text": "Shop smarter, live better",
       "type": "Jackets",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "yellow",
-        "orange",
-        "blue"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["yellow", "orange", "blue"],
       "gender": "female",
       "price": 335
     },
@@ -899,11 +534,7 @@
       "name": "Casual Bag 1",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "black",
-        "blue",
-        "red"
-      ],
+      "color": ["black", "blue", "red"],
       "gender": "female",
       "price": 500
     },
@@ -913,11 +544,7 @@
       "name": "Casual Bag 2",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "green",
-        "red",
-        "blue"
-      ],
+      "color": ["green", "red", "blue"],
       "gender": "male",
       "price": 85
     },
@@ -927,11 +554,7 @@
       "name": "Casual Bag 3",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "brown",
-        "blue",
-        "orange"
-      ],
+      "color": ["brown", "blue", "orange"],
       "gender": "female",
       "price": 200
     },
@@ -941,11 +564,7 @@
       "name": "Casual Bag 4",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "brown",
-        "blue",
-        "orange"
-      ],
+      "color": ["brown", "blue", "orange"],
       "gender": "female",
       "price": 25
     },
@@ -955,11 +574,7 @@
       "name": "Casual Bag 5",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "yellow",
-        "blue",
-        "black"
-      ],
+      "color": ["yellow", "blue", "black"],
       "gender": "female",
       "price": 40
     },
@@ -969,11 +584,7 @@
       "name": "Casual Bag 6",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "blue",
-        "black",
-        "orange"
-      ],
+      "color": ["blue", "black", "orange"],
       "gender": "female",
       "price": 400
     },
@@ -983,11 +594,7 @@
       "name": "Casual Bag 7",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "blue",
-        "black",
-        "orange"
-      ],
+      "color": ["blue", "black", "orange"],
       "gender": "female",
       "price": 355
     },
@@ -997,11 +604,7 @@
       "name": "Casual Bag 8",
       "text": "Shop smarter, live better",
       "type": "Bags",
-      "color": [
-        "blue",
-        "green",
-        "red"
-      ],
+      "color": ["blue", "green", "red"],
       "gender": "female",
       "price": 100
     },
@@ -1011,16 +614,8 @@
       "name": "Casual Suit 1",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "S",
-        "M",
-        "L"
-      ],
-      "color": [
-        "black",
-        "gray",
-        "orange"
-      ],
+      "size": ["S", "M", "L"],
+      "color": ["black", "gray", "orange"],
       "gender": "male",
       "price": 300
     },
@@ -1030,16 +625,8 @@
       "name": "Casual Suit 2",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "S",
-        "M",
-        "L"
-      ],
-      "color": [
-        "purple",
-        "orange",
-        "gray"
-      ],
+      "size": ["S", "M", "L"],
+      "color": ["purple", "orange", "gray"],
       "gender": "male",
       "price": 400
     },
@@ -1049,16 +636,8 @@
       "name": "Casual Suit 3",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "color": [
-        "purple",
-        "orange",
-        "gray"
-      ],
+      "size": ["M", "L", "XL"],
+      "color": ["purple", "orange", "gray"],
       "gender": "male",
       "price": 200
     },
@@ -1068,15 +647,8 @@
       "name": "Casual Suit 4",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "L",
-        "XL"
-      ],
-      "color": [
-        "brown",
-        "orange",
-        "black"
-      ],
+      "size": ["L", "XL"],
+      "color": ["brown", "orange", "black"],
       "gender": "male",
       "price": 600
     },
@@ -1086,15 +658,8 @@
       "name": "Casual Suit 5",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "L",
-        "XL"
-      ],
-      "color": [
-        "black",
-        "blue",
-        "red"
-      ],
+      "size": ["L", "XL"],
+      "color": ["black", "blue", "red"],
       "gender": "male",
       "price": 750
     },
@@ -1104,15 +669,8 @@
       "name": "Casual Suit 6",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "S",
-        "M"
-      ],
-      "color": [
-        "brown",
-        "orange",
-        "black"
-      ],
+      "size": ["S", "M"],
+      "color": ["brown", "orange", "black"],
       "gender": "female",
       "price": 385
     },
@@ -1122,15 +680,8 @@
       "name": "Casual Suit 7",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "L",
-        "XL"
-      ],
-      "color": [
-        "red",
-        "blue",
-        "black"
-      ],
+      "size": ["L", "XL"],
+      "color": ["red", "blue", "black"],
       "gender": "male",
       "price": 700
     },
@@ -1140,114 +691,32 @@
       "name": "Casual Suit 8",
       "text": "Shop smarter, live better",
       "type": "Suits",
-      "size": [
-        "S",
-        "M",
-        "XL"
-      ],
-      "color": [
-        "blue",
-        "green",
-        "brown"
-      ],
+      "size": ["S", "M", "XL"],
+      "color": ["blue", "green", "brown"],
       "gender": "male",
       "price": 550
     }
   ],
   "users": [
     {
-      "username": "test",
-      "email": "test@gmail.com",
-      "password": "test123",
-      "id": 1
-    },
-    {
-      "username": "test1",
-      "email": "test1@gmail.com",
-      "password": "test123",
-      "id": 2
-    },
-    {
-      "username": "test3",
-      "email": "test3@gmail.com",
-      "password": "test123",
-      "id": 3
-    },
-    {
-      "username": "test4",
-      "email": "test4@gmail.com",
-      "password": "test123",
-      "id": 4
-    },
-    {
-      "username": "test5",
-      "email": "test5@gmail.com",
-      "password": "test123",
-      "id": 5
-    },
-    {
-      "username": "test6",
-      "email": "test6@gmail.com",
-      "password": "test123",
-      "id": 6
-    },
-    {
-      "username": "test7",
-      "email": "test7@gmail.com",
-      "password": "test123",
-      "id": 7
-    },
-    {
-      "username": "test8",
-      "email": "test8@gmail.com",
-      "password": "test123",
-      "id": 8
-    },
-    {
-      "username": "test9",
-      "email": "test9@gmail.com",
-      "password": "test123",
-      "id": 9
+      "username": "test30",
+      "email": "test30@gmail.com",
+      "password": "$2a$10$qC8SWuk9zKhxyFlWChtXt.OlMScHEp7QtjuWpFImLd9CE.8zBg576",
+      "id": 20
     }
   ],
   "cart": [
     {
-      "userId": 6,
-      "products": [
-        1,
-        64
-      ],
-      "id": 2
-    },
-    {
-      "userId": 7,
-      "products": [
-        {
-          "product": 3,
-          "quantity": 3
-        },
-        {
-          "product": 6,
-          "quantity": 3
-        },
-        {
-          "product": 5,
-          "quantity": 1
-        }
-      ],
-      "id": 3
-    },
-    {
-      "userId": 8,
+      "userId": 20,
       "products": [],
-      "id": 4
+      "id": 12
     }
   ],
   "wishlist": [
     {
-      "userId": 7,
+      "userId": 20,
       "products": [],
-      "id": 1
+      "id": 6
     }
   ]
 }
