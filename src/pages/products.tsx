@@ -136,7 +136,11 @@ const Products = () => {
                         ${product.price}
                       </p>
                       <button
-                        className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                        className={`text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue ${
+                          cart?.some((item) => item.product.id === product.id)
+                            ? "bg-red-500"
+                            : "bg-blue-500"
+                        }`}
                         onClick={() => handleAddToCart(product.id)}
                       >
                         {cart?.some((item) => item.product.id === product.id)
