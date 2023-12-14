@@ -46,62 +46,76 @@ const Cart = () => {
                 Currently, your Cart is empty.
               </p>
             ) : (
-              <div className="container mx-auto my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {cart?.map((item) => {
-                  return (
-                    <div key={item.product.id}>
-                      <div className="bg-white p-4 rounded-md shadow-md">
-                        <img
-                          src={`/images/${item.product.img}`}
-                          alt="Product 1"
-                          className="w-full h-auto mb-4"
-                        />
-                        <h2 className="text-xl font-semibold mb-2">
-                          {item.product.name}
-                        </h2>
-                        <p className="text-gray-700 mb-2">
-                          Quantity:
-                          <button
-                            onClick={() => decreaseQuantity(item.product.id)}
-                            className="text-blue-500 hover:underline mx-1"
-                          >
-                            -
-                          </button>
-                          <span className="border border-gray-300 p-1 rounded-md">
-                            {item.quantity}
-                          </span>
-                          <button
-                            onClick={() => increaseQuantity(item.product.id)}
-                            className="text-blue-500 hover:underline mx-1"
-                          >
-                            +
-                          </button>
-                        </p>
-                        <p className="text-gray-700">
-                          Price: ${item.product.price} each
-                        </p>
-                      </div>
-                      <button
-                        className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red"
-                        onClick={() => handleRemoveFromCart(item.product.id)}
+              <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {cart?.map((item) => {
+                    return (
+                      <div
+                        key={item.product.id}
+                        className="card w-96 bg-base-100 shadow-xl"
                       >
-                        Remove from Cart
-                      </button>
-                    </div>
-                  );
-                })}
-
-                <div className="mt-8">
-                  <h2 className="text-2xl font-semibold mb-4">Cart Summary</h2>
-                  <p className="text-gray-50 mb-2">Total Items: {totalItems}</p>
-                  <p className="text-gray-50">Total Price: ${totalPrice}</p>
+                        <figure className="px-10 pt-10">
+                          <img
+                            src={`/images/${item.product.img}`}
+                            alt="Product 1"
+                            className="rounded-xl"
+                          />
+                        </figure>
+                        <div className="card-body items-center text-center">
+                          <h2 className="card-title">{item.product.name}</h2>
+                          <p>
+                            Quantity:
+                            <button
+                              onClick={() => decreaseQuantity(item.product.id)}
+                              className="text-blue-500 hover:underline mx-1"
+                            >
+                              -
+                            </button>
+                            <span className="border border-gray-300 p-1 rounded-md">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() => increaseQuantity(item.product.id)}
+                              className="text-blue-500 hover:underline mx-1"
+                            >
+                              +
+                            </button>
+                          </p>
+                          <p className="text-gray-70">
+                            Price: ${item.product.price} each
+                          </p>
+                          <div className="card-actions">
+                            <button
+                              className="mt-4 bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 focus:outline-none focus:shadow-outline-red"
+                              onClick={() =>
+                                handleRemoveFromCart(item.product.id)
+                              }
+                            >
+                              Remove from Cart
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
+                <div className="lg:flex flex-col sticky top-0 right-0 col-span-1 md:col-span-1 w-full p-4 rounded-md shadow-md">
+                  <div className="mt-8">
+                    <h2 className="text-2xl font-semibold mb-4">
+                      Cart Summary
+                    </h2>
+                    <p className="text-gray-50 mb-2">
+                      Total Items: {totalItems}
+                    </p>
+                    <p className="text-gray-50">Total Price: ${totalPrice}</p>
+                  </div>
 
-                <div className="mt-8">
-                  {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
+                  <div className="mt-8">
+                    {/* <button className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue">
                   Proceed to Checkout
                 </button> */}
-                  <PaypalCheckoutBtn price={totalPrice} />
+                    <PaypalCheckoutBtn price={totalPrice} />
+                  </div>
                 </div>
               </div>
             )}
