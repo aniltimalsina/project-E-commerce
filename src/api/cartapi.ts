@@ -58,3 +58,12 @@ export const fetchUserCartSerializer = async () => {
     console.log(e);
   }
 };
+
+export const clearCartItems = async () => {
+  const cartData = await fetchUserCart();
+  cartData[0].products = [];
+  console.log("cart-data ->", cartData[0]);
+  const response = await updateCart(cartData[0]);
+  console.log("response -> ", response.data);
+  return response.data;
+};

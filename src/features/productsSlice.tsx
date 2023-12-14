@@ -403,8 +403,8 @@ const productSlice = createSlice({
 export const selectCart = (state) => state.products.cart;
 export const selectWishlist = (state) => state.products.wishlist;
 
-// export const selectCartTotalItems = (state) =>
-//   state.products.cart.reduce((total, product) => total + product.quantity, 0);
+export const selectCartTotalItems = (state) =>
+  state.products.cart.reduce((total, item) => total + item.quantity, 0);
 
 export const selectCartTotalPrice = (state) => {
   return state.products.cart.reduce((total, item) => {
