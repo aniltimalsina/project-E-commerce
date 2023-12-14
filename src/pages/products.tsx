@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import {
   fetchProducts,
   selectCart,
-  removeFromWishlist,
   selectCategory,
   setSearchInput,
   selectCategoryState,
@@ -114,29 +113,20 @@ const Products = () => {
           <div className="container mx-auto my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product) => {
               return (
-                <div key={product.id} className="border-2">
-                  {/* <!-- Product Image --> */}
-                  <img
-                    src={`/images/${product.img}`}
-                    alt="Product Image"
-                    className="w-60 h-60 mb-4"
-                  />
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* <!-- Product Description --> */}
-                    <div>
-                      <h2 className="text-2xl font-semibold mb-2">
-                        {product.name}
-                      </h2>
-                      <p className="text-gray-700 mb-4">{product.text}</p>
-                    </div>
-
-                    {/* <!-- Product Price and Add to Cart, Add to Wishlist --> */}
-                    <div>
-                      <p className="text-2xl font-semibold mb-2">
-                        ${product.price}
-                      </p>
+                <div
+                  key={product.id}
+                  className="card card-compact w-96 h-2/3 bg-base-100 shadow-xl mb-1"
+                >
+                  <figure>
+                    <img src={`/images/${product.img}`} alt="Product Image" />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">{product.name}</h2>
+                    <p>{product.text}</p>
+                    <p>${product.price}</p>
+                    <div className="card-actions justify-end">
                       <button
-                        className={`text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue ${
+                        className={`btn btn-primary ${
                           cart?.some((item) => item.product.id === product.id)
                             ? "bg-red-500"
                             : "bg-blue-500"
@@ -146,10 +136,9 @@ const Products = () => {
                         {cart?.some((item) => item.product.id === product.id)
                           ? "Remove from Cart"
                           : "Add to Cart"}
-                        {/* "Add to Cart" */}
                       </button>
                       <button
-                        className="bg-blue-500 text-white px-4 py-2 m-2 rounded-full hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue"
+                        className="btn btn-primary"
                         onClick={() => handleAddToWishlist(product.id)}
                       >
                         {wishlist?.some((item) => item.id === product.id)

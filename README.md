@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+# E-commerce Website Project - Pasal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This E-commerce website (Pasal) is a user-friendly online platform designed to provide a seamless shopping experience for customers. The website offers a wide range of clothing products across various categories, including T-shirts, hoodies, jeans, and more.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Installation](#installation)
+- [Features](#features)
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/aniltimalsina/project-E-commerce-Anil
+cd your-project
+npm install  # to install node modules
+npm run dev #start development server
+npm run server #start a db.json server
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Features
+
+**User-friendly Navigation:** Intuitive and easy-to-use interface for effortless browsing.
+**Product Listings:** Browse a diverse range of products organized by categories.
+**Detailed Product Pages:** View product images, descriptions, specifications, and pricing.
+**Add to Cart:** Conveniently add products to your shopping cart for easy checkout.
+**Wishlist Functionality:** Save favorite items for future consideration.
+**User Accounts:** Create accounts to track order history, and manage payment methods.
+**Checkout Process:** Streamlined and secure checkout process with multiple payment options.
+**Security Measures:** Implement industry-standard security measures to protect user data like hashed passwords
