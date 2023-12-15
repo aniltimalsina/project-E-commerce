@@ -4,7 +4,6 @@ import { PaypalCheckoutBtn } from "../components/paypalCheckoutBtn";
 import {
   fetchCart,
   removeProductFromCart,
-  addToCart,
   selectCart,
   selectCartTotalItems,
   selectCartTotalPrice,
@@ -20,8 +19,6 @@ const Cart = () => {
   const totalPrice = useSelector(selectCartTotalPrice);
   console.log(totalPrice);
   const handleRemoveFromCart = (productId) => {
-    console.log("Removing product with ID:", productId);
-    console.log("Current cart in state:", cart);
     dispatch(removeProductFromCart(productId));
   };
   const increaseQuantity = (productId) => {
