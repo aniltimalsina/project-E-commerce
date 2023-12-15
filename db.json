@@ -1160,6 +1160,12 @@
       "email": "test30@gmail.com",
       "password": "$2a$10$qC8SWuk9zKhxyFlWChtXt.OlMScHEp7QtjuWpFImLd9CE.8zBg576",
       "id": 20
+    },
+    {
+      "username": "testuser",
+      "email": "testuser@gmail.com",
+      "password": "$2a$10$9KvfTvYpuDar6tXhg5NYV.4yGJb.HWYQqY0mP/12i6oW8BrBET4ne",
+      "id": 21
     }
   ],
   "cart": [
@@ -1173,20 +1179,30 @@
         {
           "product": 1,
           "quantity": 1
-        },
-        {
-          "product": 2,
-          "quantity": 1
         }
       ],
       "id": 12
+    },
+    {
+      "userId": 21,
+      "products": [],
+      "id": 13
     }
   ],
   "wishlist": [
     {
       "userId": 20,
-      "products": [],
+      "products": [
+        2
+      ],
       "id": 6
+    },
+    {
+      "userId": 21,
+      "products": [
+        9
+      ],
+      "id": 7
     }
   ],
   "orders": [
@@ -1217,6 +1233,26 @@
       "totalPrice": 15,
       "orderDate": "2023-12-13T22:43:02.649Z",
       "id": 2
+    },
+    {
+      "userId": "21",
+      "products": [
+        {
+          "product": 8,
+          "quantity": 1
+        },
+        {
+          "product": 4,
+          "quantity": 4
+        },
+        {
+          "product": 12,
+          "quantity": 2
+        }
+      ],
+      "totalPrice": 385,
+      "orderDate": "2023-12-15T17:40:00.536Z",
+      "id": 3
     }
   ]
 }

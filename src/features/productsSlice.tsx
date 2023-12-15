@@ -34,9 +34,7 @@ export const fetchCart = createAsyncThunk("products/fetchCart", async () => {
 export const fetchWishList = createAsyncThunk(
   "products/fetchWishList",
   async () => {
-    const response = await axios.get(
-      "http://localhost:3000/wishlist?userId=${userId}"
-    );
+    await axios.get("http://localhost:3000/wishlist?userId=${userId}");
     const wishlistData = await fetchUserWishlistSerializer();
     console.log("wishlist -data ", wishlistData);
     return wishlistData;
@@ -45,7 +43,7 @@ export const fetchWishList = createAsyncThunk(
 
 export const addCart = createAsyncThunk(
   "addCart",
-  async (productId, { rejectWithValue }) => {
+  async (productId: string) => {
     try {
       const existingData = await fetchUserCart();
       const productObj = {
@@ -68,7 +66,7 @@ export const addCart = createAsyncThunk(
 
 export const moveToCart = createAsyncThunk(
   "moveCart",
-  async (productId, { rejectWithValue }) => {
+  async (productId: string) => {
     try {
       let doesExist = false;
       const existingData = await fetchUserCart();
@@ -86,15 +84,15 @@ export const moveToCart = createAsyncThunk(
           quantity: 1,
         };
         existingData[0].products.push(productObj);
-        const response = await updateCart(existingData[0]);
+        await updateCart(existingData[0]);
 
-        const productData = await getProduct(parseInt(productId));
-        const product = {
-          product: productData,
-          quantity: response.products[response.products.length - 1].quantity,
-        };
+        await getProduct(parseInt(productId));
+        // const product = {
+        //   product: productData,
+        //   quantity: response.products[response.products.length - 1].quantity,
+        // };
         wishlistData[0].products = wishlistData[0].products.filter(
-          (p) => p !== parseInt(productId)
+          (p: number) => p !== parseInt(productId)
         );
         await updateWishlist(wishlistData[0]);
         const wishlistDatas = await fetchUserWishlistSerializer();
@@ -103,7 +101,7 @@ export const moveToCart = createAsyncThunk(
       }
       await updateCart(existingData[0]);
       wishlistData[0].products = wishlistData[0].products.filter(
-        (p) => p !== parseInt(productId)
+        (p: number) => p !== parseInt(productId)
       );
       await updateWishlist(wishlistData[0]);
       const wishlistDatas = await fetchUserWishlistSerializer();
@@ -117,7 +115,7 @@ export const moveToCart = createAsyncThunk(
 
 export const addWishlist = createAsyncThunk(
   "addWishlist",
-  async (productId, { rejectWithValue }) => {
+  async (productId: string) => {
     try {
       const existingData = await fetchUserWishlist();
       existingData[0].products.push(parseInt(productId));
@@ -132,7 +130,7 @@ export const addWishlist = createAsyncThunk(
 
 export const increaseQuantityCount = createAsyncThunk(
   "cart/product/quantity-add",
-  async (productId) => {
+  async (productId: string) => {
     try {
       const existingData = await fetchUserCart();
 
@@ -153,7 +151,7 @@ export const increaseQuantityCount = createAsyncThunk(
 
 export const decreaseQuantityCount = createAsyncThunk(
   "cart/product/quantity-minus",
-  async (productId) => {
+  async (productId: string) => {
     try {
       const existingData = await fetchUserCart();
 
@@ -164,7 +162,7 @@ export const decreaseQuantityCount = createAsyncThunk(
           }
         }
       });
-      const response = await updateCart(existingData[0]);
+      await updateCart(existingData[0]);
       const cartData = await fetchUserCartSerializer();
 
       return cartData;
@@ -176,15 +174,14 @@ export const decreaseQuantityCount = createAsyncThunk(
 
 export const removeProductFromCart = createAsyncThunk(
   "products/removeProductFromCart",
-  async (productId, { getState, rejectWithValue }) => {
+  async (productId: string) => {
     try {
       const existingData = await fetchUserCart();
-      console.log("existing-data-> ", existingData);
       existingData[0].products = existingData[0].products.filter(
         (p) => p.product !== parseInt(productId)
       );
       console.log("existing-data ->", existingData[0]);
-      const response = await updateCart(existingData[0]);
+      await updateCart(existingData[0]);
       const cartData = await fetchUserCartSerializer();
 
       return cartData;
@@ -196,12 +193,11 @@ export const removeProductFromCart = createAsyncThunk(
 
 export const removeProductFromWishlist = createAsyncThunk(
   "products/removeProductFromWhishlist",
-  async (productId, { getState, rejectWithValue }) => {
+  async (productId: string) => {
     try {
       const existingData = await fetchUserWishlist();
-      console.log("existing-data-> ", existingData);
       existingData[0].products = existingData[0].products.filter(
-        (p) => p !== parseInt(productId)
+        (p: number) => p !== parseInt(productId)
       );
       console.log("existing-data ->", existingData[0]);
       await updateWishlist(existingData[0]);
@@ -350,17 +346,6 @@ const productSlice = createSlice({
         console.log("action ", action.payload);
         state.cart = action.payload;
         state.status = "succeeded";
-        // Find the user's cart in the state
-        // const userCart = state.cart.find(
-        //   (cartItem) =>
-        //     cartItem.userId === parseInt(localStorage.getItem("token"))
-        // );
-
-        // if (userCart) {
-        //   // Update only the products array for the specific user in the state
-        //   userCart.products = action.payload;
-        //   state.status = "succeeded";
-        // }
       })
       .addCase(removeProductFromCart.rejected, (state, action) => {
         state.status = "failed";
@@ -404,10 +389,10 @@ export const selectCart = (state) => state.products.cart;
 export const selectWishlist = (state) => state.products.wishlist;
 
 export const selectCartTotalItems = (state) =>
-  state.products.cart.reduce((total, item) => total + item.quantity, 0);
+  state.products.cart.reduce((total: number, item) => total + item.quantity, 0);
 
 export const selectCartTotalPrice = (state) => {
-  return state.products.cart.reduce((total, item) => {
+  return state.products.cart.reduce((total: number, item) => {
     const productPrice = item.product.price || 0; // Ensure there's a default value if the price is missing
     return total + productPrice * item.quantity;
   }, 0);
