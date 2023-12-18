@@ -33,7 +33,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <main className="container mx-auto grid items-center py-8 min-h-screen">
         <div className=" mx-auto py-8 ">

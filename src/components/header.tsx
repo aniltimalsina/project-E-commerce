@@ -5,12 +5,12 @@ import LogoutButton from "./logoutbutton";
 const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
         <div className="text-2xl font-bold">
           <Link to="/">Pasal</Link>
         </div>
 
-        <nav className="navbar navbar-end">
+        <nav className="navbar navbar-end flex flex-wrap justify-center md:justify-end space-x-4">
           <ul className="flex space-x-8">
             <li>
               <Link

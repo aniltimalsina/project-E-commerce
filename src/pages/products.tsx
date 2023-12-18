@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   fetchProducts,
+  fetchCart,
   selectCart,
   selectCategory,
   setSearchInput,
@@ -30,10 +31,11 @@ const Products = () => {
   } = useSelector((state) => state.products);
   const cart = useSelector(selectCart);
   const wishlist = useSelector(selectWishlist);
-  console.log("----->", wishlist);
+  console.log("cart b----->", cart);
 
   useEffect(() => {
     dispatch(fetchProducts(selectedCategory)); // Pass selectedCategory to fetchProducts
+    dispatch(fetchCart());
   }, [dispatch, selectedCategory]);
 
   const handleAddToCart = (productId) => {
@@ -91,7 +93,7 @@ const Products = () => {
   }
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <div className="container mx-auto py-8 min-h-screen">
         <main className="flex-1">

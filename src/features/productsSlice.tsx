@@ -12,6 +12,29 @@ import {
   updateWishlist,
 } from "../api/wishlistapi";
 
+interface ICartItem {
+  product: number;
+  quantity: number;
+}
+
+interface IProduct {
+  id: string;
+  img: string;
+  name: string;
+  text: string;
+  type: string;
+  size: string[];
+  color: string[];
+  gender: string;
+  price: number;
+}
+
+interface ICart {
+  userId: number;
+  products: ICartItem;
+  id: number;
+}
+
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
@@ -71,7 +94,7 @@ export const moveToCart = createAsyncThunk(
       let doesExist = false;
       const existingData = await fetchUserCart();
       const wishlistData = await fetchUserWishlist();
-      existingData[0].products.forEach((element) => {
+      existingData[0].products.forEach((element: ICartItem) => {
         if (element.product === parseInt(productId)) {
           element.quantity += 1;
           doesExist = true;
@@ -134,7 +157,7 @@ export const increaseQuantityCount = createAsyncThunk(
     try {
       const existingData = await fetchUserCart();
 
-      existingData[0].products.forEach((item) => {
+      existingData[0].products.forEach((item: ICartItem) => {
         if (item.product === parseInt(productId)) {
           item.quantity += 1;
         }
@@ -155,7 +178,7 @@ export const decreaseQuantityCount = createAsyncThunk(
     try {
       const existingData = await fetchUserCart();
 
-      existingData[0].products.forEach((item) => {
+      existingData[0].products.forEach((item: ICartItem) => {
         if (item.product === parseInt(productId)) {
           if (item.quantity > 1) {
             item.quantity -= 1;
@@ -178,7 +201,7 @@ export const removeProductFromCart = createAsyncThunk(
     try {
       const existingData = await fetchUserCart();
       existingData[0].products = existingData[0].products.filter(
-        (p) => p.product !== parseInt(productId)
+        (p: ICartItem) => p.product !== parseInt(productId)
       );
       console.log("existing-data ->", existingData[0]);
       await updateCart(existingData[0]);
@@ -225,13 +248,14 @@ const productSlice = createSlice({
     addToCart: (state, action) => {
       const productId = action.payload;
       const productToAdd = state.items.find(
-        (product) => product.id === productId
+        (product: IProduct) => product.id === productId
       );
 
       if (productToAdd) {
         const existingProduct = state.cart.find(
-          (product) => product.id === productId
+          (product: IProduct) => product.id === productId
         );
+
         if (existingProduct) {
           existingProduct.quantity += 1;
         } else {
@@ -242,20 +266,22 @@ const productSlice = createSlice({
     removeFromCart: (state, action) => {
       const productId = action.payload;
       const existingProduct = state.cart.find(
-        (product) => product.id === productId
+        (product: IProduct) => product.id === productId
       );
       if (existingProduct) {
         existingProduct.quantity = Math.max(existingProduct.quantity - 1, 1);
 
         if (existingProduct.quantity === 1) {
-          state.cart = state.cart.filter((product) => product.id !== productId);
+          state.cart = state.cart.filter(
+            (product: ICart) => product.id !== productId
+          );
         }
       }
     },
     addToWishlist: (state, action) => {
       const productId = action.payload;
       const productToAdd = state.items.find(
-        (product) => product.id === productId
+        (product: IProduct) => product.id === productId
       );
 
       if (productToAdd && !state.productsInWishlist.includes(productId)) {
@@ -267,7 +293,7 @@ const productSlice = createSlice({
     removeFromWishlist: (state, action) => {
       const productId = action.payload;
       state.wishlist = state.wishlist.filter(
-        (product) => product.id !== productId
+        (product: IProduct) => product.id !== productId
       );
       state.productsInWishlist = state.productsInWishlist.filter(
         (id) => id !== productId
@@ -276,7 +302,7 @@ const productSlice = createSlice({
     moveFromWishlistToCart: (state, action) => {
       const productId = action.payload;
       const productToMove = state.wishlist.find(
-        (product) => product.id === productId
+        (product: IProduct) => product.id === productId
       );
 
       if (productToMove) {

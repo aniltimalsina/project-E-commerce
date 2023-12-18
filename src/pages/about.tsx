@@ -2,7 +2,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 const About = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 overflow-x-hidden">
       <Header />
       <div className="container mx-auto py-8 min-h-screen ">
         <div className="flex flex-wrap ">

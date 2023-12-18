@@ -25,7 +25,7 @@ const Wishlist = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <div className="mx-auto py-8 min-h-screen">
         <main className="flex-1">

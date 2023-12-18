@@ -1178,6 +1178,10 @@
         },
         {
           "product": 1,
+          "quantity": 2
+        },
+        {
+          "product": 2,
           "quantity": 1
         }
       ],
@@ -1192,16 +1196,12 @@
   "wishlist": [
     {
       "userId": 20,
-      "products": [
-        2
-      ],
+      "products": [],
       "id": 6
     },
     {
       "userId": 21,
-      "products": [
-        9
-      ],
+      "products": [],
       "id": 7
     }
   ],
@@ -1253,6 +1253,30 @@
       "totalPrice": 385,
       "orderDate": "2023-12-15T17:40:00.536Z",
       "id": 3
+    },
+    {
+      "userId": "21",
+      "products": [
+        {
+          "product": 2,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 55,
+      "orderDate": "2023-12-18T20:27:12.142Z",
+      "id": 4
+    },
+    {
+      "userId": "21",
+      "products": [
+        {
+          "product": 1,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 45,
+      "orderDate": "2023-12-18T20:33:50.279Z",
+      "id": 5
     }
   ]
 }

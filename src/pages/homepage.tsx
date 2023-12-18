@@ -5,7 +5,7 @@ import Advertisement from "../components/advertisement";
 import CarouselHome from "../components/carouselhome";
 function Homepage() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <Hero />
       <CarouselHome />
