@@ -52,7 +52,7 @@ const Registration = () => {
     }
   };
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Header />
       <div className="container mx-auto grid items-center py-8 min-h-screen">
         <div className="mx-auto py-8">
